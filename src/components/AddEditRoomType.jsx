@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const AddEditRoomType = () => {
-  const [formState, setFormState] = useState({
+  const initialFormState = {
     name: '',
     description: '',
     price: '',
@@ -11,7 +11,8 @@ const AddEditRoomType = () => {
     features: '',
     total_rooms: '',
     image: null,
-  });
+  };
+  const [formState, setFormState] = useState(initialFormState);
   const { id } = useParams(); // ID from URL for editing
   const navigate = useNavigate();
 
@@ -104,7 +105,7 @@ const config = {
             Type" style={{ maxWidth: '200px' }} />
             )}
             </label>
-        <button type="submit">Update Room Type</button>
+        <button type="submit">{id ? 'Update' : 'Create'} Room Type</button>
         </form>
         </div>
         );

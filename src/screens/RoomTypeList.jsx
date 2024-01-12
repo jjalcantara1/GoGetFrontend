@@ -1,9 +1,12 @@
 // RoomTypeList.js
 
 import React, { useState, useEffect } from 'react';
-import Header from './AdminHeader';
+import Header from '../components/AdminHeader';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import AdminButton from '../components/AdminButton';
+import { Col} from 'react-bootstrap';
 
 const RoomTypeList = () => {
   const [roomTypes, setRoomTypes] = useState([]); // Corrected variable name
@@ -23,14 +26,14 @@ const RoomTypeList = () => {
   }, []);
 
   const handleEditRoomType = (id) => {
-    navigate(`/edit-room-type/${id}`); // Navigate to the edit form
+    navigate(`/roomtypes/${id}/edit`); // Navigate to the edit form
   };
 
   const handleDeleteRoomType = async (id) => {
     // Confirm before delete
     if (window.confirm('Are you sure you want to delete this room type?')) {
       try {
-        await axios.delete(`http://127.0.0.1:8000/api/roomtypes/${id}/`);
+        await axios.delete(`http://127.0.0.1:8000/api/roomtypes/c/`);
         // Remove the room type from the state
         setRoomTypes(roomTypes.filter((type) => type.id !== id));
       } catch (error) {
@@ -43,6 +46,9 @@ const RoomTypeList = () => {
       <div className="container">
       <Header />
       <h2 className="text-center my-4">ADMIN - Room Types</h2>
+
+      <Link to="/roomtypes/new"><Col md="auto"><AdminButton text="Add Room Type" /></Col></Link>
+
       <div className="card-deck">
       {roomTypes.length === 0 && <p>No room types found.</p>}
       {roomTypes.map((type) => (

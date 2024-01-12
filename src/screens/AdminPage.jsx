@@ -12,7 +12,7 @@ const AdminPage = () => {
       <Container className="my-auto">
         <AdminTitle />
         <Row className="justify-content-md-center text-center">
-          <Link to="/hotels/7"><Col md="auto"><AdminButton text="HOTEL DETAILS" /></Col></Link>
+          c
           <Col md="auto"><AdminButton text="HOTEL ROOMS" /></Col>
           <Link to="/roomtypes"><Col md="auto"><AdminButton text="ROOM TYPES" /></Col></Link>
           <Col md="auto"><AdminButton text="GUEST LOG" /></Col>
