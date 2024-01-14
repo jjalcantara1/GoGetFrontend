@@ -1,0 +1,39 @@
+.title {
+  font-weight: 100;
+  color: aliceblue;
+  padding-bottom: 0px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.roomPic {
+  position: relative;
+  top: 0vh;
+  height: 175px;
+}
+
+.link-no-underline {
+  color: black;
+  text-align: center;
+  position: relative;
+  top: 7.5px;
+  bottom: 0vh;
+  text-decoration: none;
+  padding-top: 10px;
+}
+.price-of-room {
+  text-align: center;
+  position: relative;
+  bottom: 10vh;
+  top: 5px;
+  text-decoration: underline;
+  color: #001f3f;
+}
+
+.custom-card {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.indivCard {
+  background-color: rgba(255, 255, 255, 0.7);
+}

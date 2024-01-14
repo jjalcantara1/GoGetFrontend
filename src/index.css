@@ -1,0 +1,22 @@
+main {
+  min-height: 90vh;
+}
+
+h3 {
+  text-align: center;
+  padding: 0;
+}
+
+.image-overlay {
+  background-color: rgba(0, 31, 63, 0.7);
+}
+
+.footerText {
+  text-align: center;
+  position: relative;
+  color: wheat;
+}
+
+.card {
+  min-height: 100px;
+}
