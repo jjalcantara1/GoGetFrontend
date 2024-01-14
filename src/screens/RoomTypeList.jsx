@@ -1,7 +1,7 @@
 // RoomTypeList.js
 
 import React, { useState, useEffect } from 'react';
-import Header from '../components/AdminHeader';
+import Header from '../components/Header';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
