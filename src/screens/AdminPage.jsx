@@ -11,9 +11,9 @@ const AdminPage = () => {
       <Container className="my-auto">
         <AdminTitle />
         <Row className="justify-content-md-center text-center">
-          <Col md="auto"><AdminButton text="HOTEL ROOMS" /></Col>
+          <Link to="/hotels/1"><Col md="auto"><AdminButton text="HOTEL DETAILS" /></Col></Link>
           <Link to="/roomtypes"><Col md="auto"><AdminButton text="ROOM TYPES" /></Col></Link>
-          <Col md="auto"><AdminButton text="GUEST LOG" /></Col>
+          <Link to="/rooms"><Col md="auto"><AdminButton text="ROOMS" /></Col></Link>
         </Row>
       </Container>
     </Container>

@@ -21,7 +21,7 @@ const HotelDetails = () => {
     // Fetch the hotel details
     const fetchHotelDetails = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/hotels/7/`); // Adjust for single hotel
+        const response = await axios.get(`http://127.0.0.1:8000/api/hotels/1/`); // Adjust for single hotel
         setHotel(response.data);
       } catch (error) {
         console.error('Error fetching hotel details:', error);
@@ -49,7 +49,7 @@ const HotelDetails = () => {
     formData.append('image', hotel.image);
     }
     try {
-        const response = await axios.put(`http://127.0.0.1:8000/api/hotels/7/`, formData, {
+        const response = await axios.put(`http://127.0.0.1:8000/api/hotels/1/`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },

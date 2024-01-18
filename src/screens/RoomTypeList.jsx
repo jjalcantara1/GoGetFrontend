@@ -9,7 +9,7 @@ import AdminButton from '../components/AdminButton';
 import { Col} from 'react-bootstrap';
 
 const RoomTypeList = () => {
-  const [roomTypes, setRoomTypes] = useState([]); // Corrected variable name
+  const [roomTypes,setRoomTypes] = useState([]); // Corrected variable name
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,6 +25,10 @@ const RoomTypeList = () => {
     fetchRoomTypes();
   }, []);
 
+  const handleSeeRooms = (roomTypeId) => {
+    navigate(`/roomtypes/${roomTypeId}/rooms`);
+  };
+  
   const handleEditRoomType = (id) => {
     navigate(`/roomtypes/${id}/edit`); // Navigate to the edit form
   };
@@ -44,7 +48,7 @@ const RoomTypeList = () => {
       
       return (
       <div className="container">
-      <Header />
+   
       <h2 className="text-center my-4">ADMIN - Room Types</h2>
 
       <Link to="/roomtypes/new"><Col md="auto"><AdminButton text="Add Room Type" /></Col></Link>
@@ -62,6 +66,7 @@ const RoomTypeList = () => {
       <p className="card-text">Features: {type.features}</p>
       <p className="card-text">Total Rooms: {type.total_rooms}</p>
       <div className="card-footer">
+      <button className="btn btn-primary mr-2" onClick={() => handleSeeRooms(type.id)}>See Rooms</button>
       <button className="btn btn-primary mr-2" onClick={() => handleEditRoomType(type.id)}>Edit</button>
       <button className="btn btn-danger" onClick={() => handleDeleteRoomType(type.id)}>Delete</button>
       </div>
