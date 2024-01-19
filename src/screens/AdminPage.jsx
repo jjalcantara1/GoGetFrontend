@@ -14,6 +14,7 @@ const AdminPage = () => {
           <Link to="/hotels/1"><Col md="auto"><AdminButton text="HOTEL DETAILS" /></Col></Link>
           <Link to="/roomtypes"><Col md="auto"><AdminButton text="ROOM TYPES" /></Col></Link>
           <Link to="/rooms"><Col md="auto"><AdminButton text="ROOMS" /></Col></Link>
+          <Link to=" "><Col md="auto"><AdminButton text="GUEST LOG" /></Col></Link>
         </Row>
       </Container>
     </Container>

@@ -6,7 +6,7 @@ function Header() {
     <>
       <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/">
             GoGet
           </a>
           <button
@@ -29,7 +29,7 @@ function Header() {
                 </a>
               </li>
               <li class="nav-item item2">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="selectroom">
                   Rooms
                 </a>
               </li>
@@ -43,9 +43,6 @@ function Header() {
                   Contact Us
                 </a>
               </li>
-              <button type="button" class="btn btn-info">
-                Log In
-              </button>
             </ul>
           </div>
         </div>
