@@ -2,65 +2,47 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import AddEditRoomModal from './AddEditRoomModal';
 import { useSelector, useDispatch } from 'react-redux';
-import { getRoomsByType } from '../actions/roomActions';
+import { getRoomsByType, deleteRoom } from '../actions/roomActions';
+import '../bootstrap.min.css'; 
 
 const RoomDetails = () => {
+    const navigate = useNavigate(); 
     const { roomTypeId } = useParams();
     const [rooms, setRooms] = useState([]);
-    const [showModal, setShowModal] = useState(false);
-    const [editableRoom, setEditableRoom] = useState(null);
     const dispatch = useDispatch();
-    const fetchedRooms = useSelector(state => state.room.rooms); // Adjust according to your state structure
+    const fetchedRooms = useSelector(state => state.room.rooms);
 
     useEffect(() => {
         dispatch(getRoomsByType(roomTypeId));
-        setRooms(fetchedRooms); // Update local state when Redux state changes
-    }, [dispatch, roomTypeId, fetchedRooms]);
+    }, [dispatch, roomTypeId]);
+    
+    useEffect(() => {
+        if (JSON.stringify(rooms) !== JSON.stringify(fetchedRooms)) {
+            setRooms(fetchedRooms);
+        }
+    }, [fetchedRooms, rooms]); // Added rooms to the dependency array
 
-  const handleDelete = async (roomId) => {
-    try {
-      await axios.delete(`http://127.0.0.1:8000/api/rooms/${roomId}/delete/`);
-      setRooms(rooms.filter(room => room.id !== roomId));
+    useEffect(() => {
+        console.log("Rooms updated", rooms);
+    }, [rooms]);
+
+    const handleDelete = async (roomId) => {
+      try {
+        await axios.delete(`http://127.0.0.1:8000/api/rooms/${roomId}/delete/`);
+        dispatch(deleteRoom(roomId)); // Dispatching an action to update the Redux store
     } catch (error) {
-      console.error('Error deleting room:', error);
+        console.error('Error deleting room:', error);
     }
   };
-
+  
   const handleAdd = () => {
-    setEditableRoom(null); // Clear any previous edits
-    setShowModal(true); // Show the modal for adding a room
-  };
+    navigate(`/roomtypes/${roomTypeId}/addroom`);
+};
+
 
   const handleEdit = (room) => {
-    setEditableRoom(room); // Set the room to be edited
-    setShowModal(true); // Show the modal for editing
-  };
-
-  const saveRoom = async (roomData, roomTypeId) => {
-    const method = roomData.id ? 'put' : 'post';
-    const url = roomData.id
-      ? `http://127.0.0.1:8000/api/rooms/${roomData.id}/update/`
-      : `http://127.0.0.1:8000/api/roomtypes/${roomTypeId}/rooms/add/`;
-
-    try {
-      const response = await axios[method](url, roomData);
-      if (roomData.id) {
-        // Update the room in the state
-        setRooms(rooms.map(room => (room.id === response.data.id ? response.data : room)));
-      } else {
-        // Add the new room to the state
-        setRooms([...rooms, response.data]);
-      }
-      setShowModal(false); // Close the modal
-    } catch (error) {
-      console.error('Error saving room:', error);
-    }
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
+    navigate(`/rooms/${room.id}/edit`);
   };
 
 
@@ -73,17 +55,12 @@ const RoomDetails = () => {
                 <p>Room Number: {room.number}</p>
                 <button onClick={() => handleEdit(room)}>Edit</button>
                 <button onClick={() => handleDelete(room.id)}>Delete</button>
-          <AddEditRoomModal
-        showModal={showModal}
-        closeModal={closeModal}
-        saveRoom={saveRoom}
-        roomDetails={editableRoom}
-        roomTypeId={roomTypeId}
-      />
-        </div>
-      ))}
+            </div>
+        ))}
+       
     </div>
-  );
+);
 };
+
 
 export default RoomDetails;

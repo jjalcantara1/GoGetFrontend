@@ -29,12 +29,11 @@ export const roomReducer = (state = initialState, action) => {
           room.id === action.payload.id ? action.payload : room
         ),
       };
-    case DELETE_ROOM:
-      // Assuming action.payload contains the id of the room to delete
-      return {
-        ...state,
-        rooms: state.rooms.filter((room) => room.id !== action.payload),
-      };
+      case DELETE_ROOM:
+        return {
+            ...state,
+            rooms: state.rooms.filter((room) => room.id !== action.payload),
+        };
     default:
       return state;
   }

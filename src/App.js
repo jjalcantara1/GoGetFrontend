@@ -6,8 +6,10 @@ import RoomTypeDetail from './components/RoomTypeDetail';
 import RoomDetails from './components/RoomDetails';
 import RoomTypeList from './screens/RoomTypeList';
 import AddEditRoomType from './components/AddEditRoomType';
+import AddRoomPage from './screens/AddRoomPage';
+import EditRoomPage from './screens/EditRoomPage';
 import HotelDetails from './components/HotelDetails'
-import './bootstrap.min.css';
+import './bootstrap.min.css'; 
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -40,13 +42,15 @@ const App = () => (
             <Route path="/" element={<SelectRoom />} exact />
             <Route path='/products/:_id' element={<RoomScreen />}/>
             <Route path="/admin" element={<AdminPage />} exact /> 
-            // <Route path="/" element={<LandingPage />} exact />
+            {/* <Route path="/" element={<LandingPage />} exact /> */}
             <Route path="/hotels/1" element={<HotelDetails />} />
             <Route path="/roomtypes/:id" element={<RoomTypeDetail />} exact />
             <Route path="/roomtypes/new" element={<AddEditRoomType />} />
             <Route path="/roomtypes/:id/edit" element={<AddEditRoomType />} />
             <Route path="/roomtypes" element={<RoomTypeList />} exact />
             <Route path="/roomtypes/:roomTypeId/rooms" element={<RoomDetails />} />
+            <Route path="/roomtypes/:roomTypeId/addroom" element={<AddRoomPage />} />
+            <Route path="/rooms/:roomId/edit" element={<EditRoomPage />} />
           </Routes>
         </Container>
       </main>
