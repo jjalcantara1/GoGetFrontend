@@ -1,0 +1,40 @@
+main {
+  min-height: 90vh;
+}
+
+h3 {
+  text-align: center;
+  padding: 0;
+}
+
+.image-overlay {
+  background-color: rgba(0, 31, 63, 0.7);
+}
+
+.footerText {
+  text-align: center;
+  position: relative;
+  color: wheat;
+}
+
+.AdminTitleText {
+  color: #FFF;
+}
+
+.ButtonText {
+  color: #FFF;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

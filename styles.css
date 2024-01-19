@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+
+    * {
+    box-sizing: border-box;
+    }
+    body {
+        position: relative; /* Add this to position the pseudo-element relative to the body */
+        background-image: url('images/hotel.png'); 
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;    
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    font-family: "Times New Roman", serif; /* Apply Times New Roman specifically to h1 */
+    font-weight: bold; /* Use bold for heading 1 */
+    color:black;
+}
+
+
+/* Add a pseudo-element for the overlay */
+body::before {
+    content: "";
+    position: absolute;
+    top: 100    ;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5); /* Adjust the last value for the desired transparency */
+    z-index: -1; /* Place the overlay behind the background image */
+}
+
+.image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 31, 63, 0.7); /* Adjust the color and opacity as needed */
+    z-index: -1; /* Ensure the overlay is behind other elements */
+  }
+  
+  .logo-image {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 100%;    
+  }
+  
+
+.logo-container {
+    display: flex; 
+    align-items: center; 
+    margin-left: 20px; 
+  }
+  
