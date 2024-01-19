@@ -37,7 +37,7 @@ const RoomTypeList = () => {
     // Confirm before delete
     if (window.confirm('Are you sure you want to delete this room type?')) {
       try {
-        await axios.delete(`http://127.0.0.1:8000/api/roomtypes/c/`);
+        await axios.delete(`http://127.0.0.1:8000/api/roomtypes/${id}/`);
         // Remove the room type from the state
         setRoomTypes(roomTypes.filter((type) => type.id !== id));
       } catch (error) {
