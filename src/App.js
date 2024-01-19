@@ -20,6 +20,7 @@ import wallpaper from "./wallpaper.jpg";
 import "./index.css";
 import { Provider } from 'react-redux';
 import store from './store';
+import Login from "./screens/Login";
 
 const appStyle = {
   position: 'relative',
@@ -42,7 +43,7 @@ const App = () => (
             <Route path="/selectroom" element={<SelectRoom />} exact />
             <Route path='/products/:_id' element={<RoomScreen />}/>
             <Route path="/admin" element={<AdminPage />} exact /> 
-            {/* <Route path="/" element={<LandingPage />} exact /> */}
+            <Route path="/" element={<LandingPage />} exact />
             <Route path="/hotels/1" element={<HotelDetails />} />
             <Route path="/roomtypes/:id" element={<RoomTypeDetail />} exact />
             <Route path="/roomtypes/new" element={<AddEditRoomType />} />
@@ -51,6 +52,7 @@ const App = () => (
             <Route path="/roomtypes/:roomTypeId/rooms" element={<RoomDetails />} />
             <Route path="/roomtypes/:roomTypeId/addroom" element={<AddRoomPage />} />
             <Route path="/rooms/:roomId/edit" element={<EditRoomPage />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </Container>
       </main>
