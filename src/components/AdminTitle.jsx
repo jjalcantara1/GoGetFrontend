@@ -4,7 +4,7 @@ import "../index.css"
 
 const AdminTitle = () => (
   <div className='AdminTitleText'>
-    <Container className="text-center my-4" color='#001f3f'>
+    <Container className="text-center my-4">
     <h1>ADMIN</h1>
   </Container>
   </div>

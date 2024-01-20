@@ -3,12 +3,11 @@ import { Row, Col } from "react-bootstrap";
 import products from "../products";
 import Product from "../components/Product"; // Adjust the relative path as needed
 import "../SelectRoom.css";
-import Header from "../components/Header";
 
 function SelectRoom() {
   return (
     <>
-    <Header />
+    <div>
     <header>
       <div>
         <h1 className="title">Available Rooms</h1>
@@ -21,6 +20,9 @@ function SelectRoom() {
         </Row>
       </div>
     </header>
+
+    </div>
+    
     </>
   );
   

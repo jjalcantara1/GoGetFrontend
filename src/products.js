@@ -19,7 +19,7 @@ const products = [
   {
     _id: "3",
     name: "Premier Family Suite",
-    image: "/images/Premier Family Suite.jpg",
+    image: "/images/PremierFamilySuite.jpg",
     description: "Family Suite",
     price: 9499,
     numReviews: 12,
