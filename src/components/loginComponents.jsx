@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
 
+
 export const Container = styled.div`
     background-color: #E7F1F1;
     border-radius: 10px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    position: relative;
+    position : absolute;
+    margin-left : 100px;
     overflow: hidden;
     width: 1100px;
     min-height: 800px;
@@ -40,7 +42,7 @@ export const SignInContainer = styled.div`
 `;
 
 export const Form = styled.form`
-    background-color: #A1C1FF;
+    background-color: #001f3f;
     display: flex;
     align-items: center;
     justify-content: center;

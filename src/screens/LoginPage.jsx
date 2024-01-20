@@ -13,16 +13,18 @@ import {
   LeftOverlayPanel,
   RightOverlayPanel,
 } from '../components/loginComponents'; // Import named exports individually
+import './LoginPage.css'
 
 
 const LoginPage=() =>{
-  const [signIn, toggle] = useState(true); // Use useState instead of React.useState
+  const [signIn, toggle] = useState(true);
+
   return (
     <Container className="app-container">
       <div className="image-overlay"></div>
       <SignInContainer signinIn={signIn}>
         <Form>
-          <Title>Log in</Title>
+          <Title className='titleText'>Log in</Title>
           <Input type='email' placeholder='Username' />
           <Input type='password' placeholder='Password' />
           <Button>Login</Button>
@@ -32,14 +34,16 @@ const LoginPage=() =>{
         <Overlay signinIn={signIn}>
           <LeftOverlayPanel signinIn={signIn}>
             <div> <i className="fa-solid fa-hotel"></i> </div>
-            <Title>GoGet</Title>
-            <Title>(a room)</Title>
+        
             <GhostButton onClick={() => toggle(true)}>Sign In</GhostButton>
           </LeftOverlayPanel>
+
           <RightOverlayPanel signinIn={signIn}>
-            <Title>GoGet</Title>
-            <Title>(a room)</Title>
-            <GhostButton onClick={() => toggle(false)}>Sign Up</GhostButton>
+
+            
+          <Title className='hotelName'>GoGet</Title>
+            <Title className='subText'>(a room)</Title>
+            
           </RightOverlayPanel>
         </Overlay>
       </OverlayContainer>

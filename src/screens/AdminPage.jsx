@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../components/Header'; 
 import AdminTitle from '../components/AdminTitle';
 import AdminButton from '../components/AdminButton'; 
 import { Container, Row, Col } from 'react-bootstrap';

@@ -11,7 +11,6 @@ import EditRoomPage from './screens/EditRoomPage';
 import HotelDetails from './components/HotelDetails'
 import './bootstrap.min.css'; 
 
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SelectRoom from "./screens/SelectRoom";
 import { Container } from "react-bootstrap";
@@ -35,13 +34,10 @@ const App = () => (
   <Provider store={store}>
     <Router>
       <div style={appStyle}>
-        <Header />
-        <div className="image-overlay">
+        <div className="image-overlay"  >
           <main className="py-3">
         <Container>
           <Routes>
-            <Route path="/selectroom" element={<SelectRoom />} exact />
-            <Route path='/products/:_id' element={<RoomScreen />}/>
             <Route path="/admin" element={<AdminPage />} exact /> 
        {   /*  <Route path="/" element={<LandingPage />} exact />*/}
             <Route path="/hotels/1" element={<HotelDetails />} />
@@ -52,9 +48,19 @@ const App = () => (
             <Route path="/roomtypes/:roomTypeId/rooms" element={<RoomDetails />} />
             <Route path="/roomtypes/:roomTypeId/addroom" element={<AddRoomPage />} />
             <Route path="/rooms/:roomId/edit" element={<EditRoomPage />} />
+          </Routes>
+        
+        </Container>
+        
+        <Container>
+        
+          <Routes>
+            <Route path="/selectroom" element={<SelectRoom />} exact />
+            <Route path='/products/:_id' element={<RoomScreen />}/>
             <Route path="/login" element={<LoginPage />} />
           </Routes>
         </Container>
+
       </main>
       <Footer />
       </div>
