@@ -1,11 +1,7 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
-function AdminHeader() {
-  const handleLogout = () => {
-    // Add your logout logic here
-    console.log('Logout logic goes here');
-  };
-
+function NavLogOut() {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -22,13 +18,15 @@ function AdminHeader() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           ></button>
-          <button className="btn btn-outline-light" onClick={handleLogout}>
-            Logout
-          </button>
+          <Link to="/">
+            <button className="btn btn-outline-light">
+              Logout
+            </button>
+          </Link>
         </div>
       </nav>
     </>
   );
 }
 
-export default AdminHeader;
+export default NavLogOut;

@@ -3,12 +3,12 @@ import AdminTitle from "../components/AdminTitle";
 import AdminButton from "../components/AdminButton";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import AdminHeader from "../components/AdminHeader";
+import NavLogOut from "../components/NavLogOut";
 
 const AdminPage = () => {
   return (
     <>
-      <AdminHeader />
+      <NavLogOut />
        <Container fluid className="px-0 min-vh-100 d-flex flex-column">
         <Container className="my-auto">
         <AdminTitle />
