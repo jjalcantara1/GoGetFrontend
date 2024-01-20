@@ -41,7 +41,7 @@ export const SignInContainer = styled.div`
     ${props => (props.signinIn !== true ? `transform: translateX(100%);` : null)}
 `;
 
-export const Form = styled.form`
+export const AuthForm = styled.form`
     background-color: #001f3f;
     display: flex;
     align-items: center;
@@ -67,7 +67,7 @@ export const Input = styled.input`
 `;
 
 
-export const Button = styled.button`
+export const AuthButton = styled.button`
    border-radius: 20px;
    border: 1px solid #ffffff;
    background-color: #ffffff;
@@ -87,7 +87,7 @@ export const Button = styled.button`
    margin-bottom: 10px;
    margin-left: 300px;
 `;
-export const GhostButton = styled(Button)`
+export const GhostButton = styled(AuthButton)`
     background-color: transparent;
     border-color: black;
     color: black;

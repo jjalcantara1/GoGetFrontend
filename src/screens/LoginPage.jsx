@@ -1,33 +1,77 @@
-import React, { useState } from 'react'; // Import React and useState
+import React, { useEffect, useState } from 'react'; // Import React and useState
 import {
   Container,
   SignUpContainer,
   SignInContainer,
-  Form,
+  AuthForm,
   Title,
   Input,
-  Button,
+  AuthButton,
   GhostButton,
   OverlayContainer,
   Overlay,
   LeftOverlayPanel,
-  RightOverlayPanel,
+  RightOverlayPanel
 } from '../components/loginComponents'; // Import named exports individually
 import './LoginPage.css'
+import { Link, useLocation, useSearchParams, useNavigate } from 'react-router-dom';
+import { Form, Button, Row, Col } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../actions/loginActions';
 
 
 const LoginPage=() =>{
   const [signIn, toggle] = useState(true);
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
+  const location = useLocation()
+
+  const adminLogin = useSelector(state => state.login)
+  const { error, loading, loginInfo} = adminLogin
+  const redirect = location.search ? location.search.split('=')[1] : '../admin'
+
+
+  let navigate = useNavigate()
+  const dispatch = useDispatch()
+  useEffect(() => {
+    if (loginInfo) {
+      navigate(redirect)
+    }
+  }, [navigate, loginInfo, redirect])
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+    dispatch(login(username, password))
+  }
 
   return (
     <Container className="app-container">
       <div className="image-overlay"></div>
       <SignInContainer signinIn={signIn}>
-        <Form>
+        <Form onSubmit={submitHandler}>
           <Title className='titleText'>Log in</Title>
-          <Input type='email' placeholder='Username' />
-          <Input type='password' placeholder='Password' />
-          <Button>Login</Button>
+          <Form.Group controlId='username'>
+            <Form.Label>Username</Form.Label>
+            <Form.Control
+              type='username'
+              placeholder='Username'
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            >
+            </Form.Control>
+          </Form.Group>
+          <Form.Group controlId='password'>
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type='password'
+              placeholder='Password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            >
+            </Form.Control>
+          </Form.Group>
+          <AuthButton type='submit'>Login</AuthButton>
         </Form>
       </SignInContainer>
       <OverlayContainer signinIn={signIn}>
