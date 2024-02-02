@@ -20,6 +20,7 @@ import "./index.css";
 import { Provider } from 'react-redux';
 import store from './store';
 import LoginPage from './screens/LoginPage';
+import ProtectedRoute from './utils/ProtectedRoute';
 
 const appStyle = {
   position: 'relative',
@@ -38,7 +39,7 @@ const App = () => (
           <main className="py-3">
         <Container>
           <Routes>
-            <Route path="/admin" element={<AdminPage />} exact /> 
+            <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} exact />
             <Route path="/home" element={<LandingPage />} exact />*/
             <Route path="/hotels/1" element={<HotelDetails />} />
             <Route path="/roomtypes/:id" element={<RoomTypeDetail />} exact />
