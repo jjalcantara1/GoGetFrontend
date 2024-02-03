@@ -1,53 +1,51 @@
 import React from "react";
-
+import "./Header.css";
 
 function Header() {
   return (
-    <>
-      <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/">
-            GoGet
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarColor01"
-            aria-controls="navbarColor01"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item item1">
-                <a class="nav-link" href="#">
-                  About
-                  <span class="visually-hidden">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item item2">
-                <a class="nav-link" href="selectroom">
-                  Rooms
-                </a>
-              </li>
-              <li class="nav-item item3">
-                <a class="nav-link" href="#">
-                  FAQs
-                </a>
-              </li>
-              <li class="nav-item item4">
-                <a class="nav-link" href="#">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
-          </div>
+    <nav className="navbar navbar-expand bg-primary" data-bs-theme="dark">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="/">
+          GoGet
+        </a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarColor01"
+          aria-controls="navbarColor01"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarColor01">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item item1">
+              <a className="nav-link" href="#">
+                About
+                <span className="visually-hidden">(current)</span>
+              </a>
+            </li>
+            <li className="nav-item item2">
+              <a className="nav-link" href="selectroom">
+                Rooms
+              </a>
+            </li>
+            <li className="nav-item item3">
+              <a className="nav-link" href="#">
+                FAQs
+              </a>
+            </li>
+            <li className="nav-item item4">
+              <a className="nav-link" href="#">
+                Contact Us
+              </a>
+            </li>
+          </ul>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 }
 
