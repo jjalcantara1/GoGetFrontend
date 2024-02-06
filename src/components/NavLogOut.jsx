@@ -1,14 +1,21 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function NavLogOut() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Here you would clear any auth tokens or user data stored in localStorage/sessionStorage
+    localStorage.removeItem('userToken'); // Example, adjust according to your app's auth token key
+    // And then redirect to the login page or any other page
+    navigate('/home');
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            GoGet
-          </a>
+          <a className="navbar-brand" href="/">GoGet</a>
           <button
             className="navbar-toggler"
             type="button"
@@ -18,11 +25,9 @@ function NavLogOut() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           ></button>
-          <Link to="/">
-            <button className="btn btn-outline-light">
-              Logout
-            </button>
-          </Link>
+          <button className="btn btn-outline-light" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
       </nav>
     </>
