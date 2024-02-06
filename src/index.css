@@ -1,5 +1,5 @@
 main {
-  min-height: 90vh;
+  min-height: 100vh;
 }
 
 h3 {
@@ -15,6 +15,7 @@ h3 {
   text-align: center;
   position: relative;
   color: wheat;
+  text-size-adjust: none !important;
 }
 
 .AdminTitleText {
