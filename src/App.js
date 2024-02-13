@@ -21,6 +21,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import LoginPage from './screens/LoginPage';
 import ProtectedRoute from './utils/ProtectedRoute';
+import RoomAvailabilityScreen from './screens/RoomAvailabilityScreen';
 
 const appStyle = {
   position: 'relative',
@@ -49,6 +50,7 @@ const App = () => (
             <Route path="/roomtypes/:roomTypeId/rooms" element={<RoomDetails />} />
             <Route path="/roomtypes/:roomTypeId/addroom" element={<AddRoomPage />} />
             <Route path="/rooms/:roomId/edit" element={<EditRoomPage />} />
+            <Route path="/booknow" element={<RoomAvailabilityScreen />} />
           </Routes>
         
         </Container>
