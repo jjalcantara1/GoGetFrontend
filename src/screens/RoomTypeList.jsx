@@ -1,29 +1,27 @@
-// RoomTypeList.js
-
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import AdminButton from '../components/AdminButton';
 import { Col} from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchRoomTypes, deleteRoomType } from '../actions/roomTypeActions';
+
 
 const RoomTypeList = () => {
-  const [roomTypes,setRoomTypes] = useState([]); // Corrected variable name
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const roomTypes = useSelector((state) => state.roomTypes.roomTypes); // Adjust based on your state structure
 
   useEffect(() => {
-    const fetchRoomTypes = async () => {
-      try {
-        const response = await axios.get('http://127.0.0.1:8000/api/roomtypes/');
-        setRoomTypes(response.data);
-      } catch (error) {
-        console.error('There was an error fetching the room types', error);
-      }
-    };
+    dispatch(fetchRoomTypes());
+  }, [dispatch]);
 
-    fetchRoomTypes();
-  }, []);
+  const handleDeleteRoomType = async (id) => {
+    if (window.confirm('Are you sure you want to delete this room type?')) {
+      dispatch(deleteRoomType(id));
+    }
+  };
 
   const handleSeeRooms = (roomTypeId) => {
     navigate(`/roomtypes/${roomTypeId}/rooms`);
@@ -33,19 +31,6 @@ const RoomTypeList = () => {
     navigate(`/roomtypes/${id}/edit`); // Navigate to the edit form
   };
 
-  const handleDeleteRoomType = async (id) => {
-    // Confirm before delete
-    if (window.confirm('Are you sure you want to delete this room type?')) {
-      try {
-        await axios.delete(`http://127.0.0.1:8000/api/roomtypes/${id}/`);
-        // Remove the room type from the state
-        setRoomTypes(roomTypes.filter((type) => type.id !== id));
-      } catch (error) {
-      console.error('There was an error deleting the room type', error);
-      }
-      }
-      };
-      
       return (
       <div className="container">
    

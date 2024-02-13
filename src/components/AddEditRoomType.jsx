@@ -9,7 +9,6 @@ const AddEditRoomType = () => {
     price: '',
     capacity: '',
     features: '',
-    total_rooms: '',
     image: null,
   };
   const [formState, setFormState] = useState(initialFormState);
@@ -91,10 +90,6 @@ const config = {
         <label>
           Features:
           <input type="text" name="features" value={formState.features} onChange={handleChange} required />
-        </label>
-        <label>
-          Total Rooms:
-          <input type="number" name="total_rooms" value={formState.total_rooms} onChange={handleChange} required />
         </label>
         <label>
             Image:

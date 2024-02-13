@@ -1,4 +1,4 @@
-// actions/roomActions.js
+
 import axios from 'axios';
 
 export const getRoomsByType = (roomTypeId) => async (dispatch) => {
@@ -14,7 +14,7 @@ export const getRoomsByType = (roomTypeId) => async (dispatch) => {
     }
   };
   
-  // Add more actions for add, edit, delete
+
   
   export const addRoom = (roomData) => async (dispatch) => {
     try {
