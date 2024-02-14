@@ -29,16 +29,16 @@ const LoginPage=() =>{
 
   const adminLogin = useSelector(state => state.login)
   const { error, loading, loginInfo} = adminLogin
-  const redirect = location.search ? location.search.split('=')[1] : '../admin'
+  const redirect = location.search ? location.search.split('=')[1] : '/admin'
 
 
   let navigate = useNavigate()
   const dispatch = useDispatch()
   useEffect(() => {
     if (loginInfo) {
-      navigate(redirect)
+      navigate('/admin')
     }
-  }, [navigate, loginInfo, redirect])
+  }, [loginInfo, redirect, dispatch, navigate])
 
   const submitHandler = (e) => {
     e.preventDefault()

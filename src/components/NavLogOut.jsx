@@ -6,9 +6,10 @@ function NavLogOut() {
 
   const handleLogout = () => {
     // Here you would clear any auth tokens or user data stored in localStorage/sessionStorage
-    localStorage.removeItem('userToken'); // Example, adjust according to your app's auth token key
+    localStorage.removeItem('loginInfo'); // Example, adjust according to your app's auth token key
     // And then redirect to the login page or any other page
-    navigate('/home');
+    navigate('/home/');
+    
   };
 
   return (
