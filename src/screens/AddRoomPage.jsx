@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addRoom } from '../actions/roomActions';
 
 const AddRoomPage = () => {
     const { roomTypeId } = useParams();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [roomDetails, setRoomDetails] = useState({
         number: '',
         is_available: true,
@@ -22,16 +24,16 @@ const AddRoomPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            await axios.post(`http://127.0.0.1:8000/api/rooms/`, {
-                ...roomDetails,
-                room_type: roomTypeId,
+        // Dispatch the addRoom action with roomDetails and roomTypeId
+        dispatch(addRoom({ ...roomDetails, room_type: roomTypeId }))
+            .then(() => {
+                navigate(`/roomtypes/${roomTypeId}/rooms`);
+            })
+            .catch((error) => {
+                console.error('Error adding room:', error);
             });
-            navigate(`/roomtypes/${roomTypeId}/rooms`);
-        } catch (error) {
-            console.error('Error adding room:', error);
-        }
     };
+    
 
     return (
         <div>

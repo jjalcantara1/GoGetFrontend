@@ -1,5 +1,7 @@
 
 import axios from 'axios';
+import { ADD_ROOM_REQUEST, ADD_ROOM_SUCCESS, ADD_ROOM_FAILURE } from '../constants/roomConstants';
+
 
 export const getRoomsByType = (roomTypeId) => async (dispatch) => {
     try {
@@ -17,16 +19,20 @@ export const getRoomsByType = (roomTypeId) => async (dispatch) => {
 
   
   export const addRoom = (roomData) => async (dispatch) => {
+    dispatch({ type: ADD_ROOM_REQUEST });
     try {
-        const response = await axios.post(`http://127.0.0.1:8000/api/rooms/`, roomData);
-        dispatch({
-            type: 'ADD_ROOM',
-            payload: response.data,
-        });
+      const response = await axios.post(`http://127.0.0.1:8000/api/rooms/`, roomData);
+      dispatch({
+        type: ADD_ROOM_SUCCESS,
+        payload: response.data,
+      });
     } catch (error) {
-        console.error('Error adding room:', error);
+      dispatch({
+        type: ADD_ROOM_FAILURE,
+        payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+      });
     }
-};
+  };
 
 
 export const editRoom = (roomId, roomData) => async (dispatch) => {
