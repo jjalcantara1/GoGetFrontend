@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import LandingPage from './screens/LandingPage';
+import AboutUs from './screens/AboutUs';
 import AdminPage from './screens/AdminPage';
 import RoomTypeDetail from './components/RoomTypeDetail';
 import RoomDetails from './components/RoomDetails';
@@ -21,6 +22,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import LoginPage from './screens/LoginPage';
 import ProtectedRoute from './utils/ProtectedRoute';
+import RoomAvailabilityScreen from './screens/RoomAvailabilityScreen';
 import ContactPage from './screens/ContactPage';
 
 
@@ -44,6 +46,7 @@ const App = () => (
           <Routes>
             <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} exact />
             <Route path="/" element={<LandingPage />} exact />
+            <Route path="/aboutUs" element={<AboutUs />} exact />
             <Route path="/hotels/1" element={<HotelDetails />} />
             <Route path="/roomtypes/:id" element={<RoomTypeDetail />} exact />
             <Route path="/roomtypes/new" element={<AddEditRoomType />} />
@@ -52,6 +55,7 @@ const App = () => (
             <Route path="/roomtypes/:roomTypeId/rooms" element={<RoomDetails />} />
             <Route path="/roomtypes/:roomTypeId/addroom" element={<AddRoomPage />} />
             <Route path="/rooms/:roomId/edit" element={<EditRoomPage />} />
+            <Route path="/booknow" element={<RoomAvailabilityScreen />} />
           </Routes>
         
         </Container>
