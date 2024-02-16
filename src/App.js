@@ -21,6 +21,9 @@ import { Provider } from 'react-redux';
 import store from './store';
 import LoginPage from './screens/LoginPage';
 import ProtectedRoute from './utils/ProtectedRoute';
+import ContactPage from './screens/ContactPage';
+
+
 
 const appStyle = {
   position: 'relative',
@@ -59,8 +62,11 @@ const App = () => (
             <Route path="/selectroom" element={<SelectRoom />} exact />
             <Route path='/products/:_id' element={<RoomScreen />}/>
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/contact" element={<ContactPage/>} />
           </Routes>
         </Container>
+
+
 
       </main>
       <Footer />

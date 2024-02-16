@@ -50,10 +50,11 @@ const LoginPage=() =>{
       <div className="image-overlay"></div>
       <SignInContainer signinIn={signIn}>
         <Form onSubmit={submitHandler}>
+          
           <Title className='titleText'>Log in</Title>
-          <Form.Group controlId='username'>
-            <Form.Label>Username</Form.Label>
-            <Form.Control
+          <Form.Group className='titleText' controlId='username'>
+           
+            <Form.Control 
               type='username'
               placeholder='Username'
               value={username}
@@ -61,8 +62,8 @@ const LoginPage=() =>{
             >
             </Form.Control>
           </Form.Group>
-          <Form.Group controlId='password'>
-            <Form.Label>Password</Form.Label>
+          <Form.Group className='titleText' controlId='password'>
+            
             <Form.Control
               type='password'
               placeholder='Password'
@@ -71,8 +72,9 @@ const LoginPage=() =>{
             >
             </Form.Control>
           </Form.Group>
-          <AuthButton type='submit'>Login</AuthButton>
+          <AuthButton className='titleText' type='submit'>Login</AuthButton>
         </Form>
+
       </SignInContainer>
       <OverlayContainer signinIn={signIn}>
         <Overlay signinIn={signIn}>
@@ -84,7 +86,6 @@ const LoginPage=() =>{
 
           <RightOverlayPanel signinIn={signIn}>
 
-            
           <Title className='hotelName'>GoGet</Title>
             <Title className='subText'>(a room)</Title>
             
@@ -96,3 +97,4 @@ const LoginPage=() =>{
 }
 
 export default LoginPage;
+
