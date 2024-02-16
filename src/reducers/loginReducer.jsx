@@ -6,7 +6,7 @@ export const loginReducer = (state={}, action) => {
       return {loading:true}
     
     case LOGIN_SUCCESS:
-      return {loading:false, error: action.payload}
+      return {loading:false, loginInfo: action.payload}
 
     case LOGOUT:
       return {}
