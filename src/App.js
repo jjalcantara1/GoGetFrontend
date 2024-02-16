@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import LandingPage from './screens/LandingPage';
+import AboutUs from './screens/AboutUs';
 import AdminPage from './screens/AdminPage';
 import RoomTypeDetail from './components/RoomTypeDetail';
 import RoomDetails from './components/RoomDetails';
@@ -41,7 +42,8 @@ const App = () => (
         <Container>
           <Routes>
             <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} exact />
-            <Route path="/home" element={<LandingPage />} exact />
+            <Route path="/" element={<LandingPage />} exact />
+            <Route path="/aboutUs" element={<AboutUs />} exact />
             <Route path="/hotels/1" element={<HotelDetails />} />
             <Route path="/roomtypes/:id" element={<RoomTypeDetail />} exact />
             <Route path="/roomtypes/new" element={<AddEditRoomType />} />

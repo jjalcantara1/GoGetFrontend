@@ -1,0 +1,23 @@
+.About {
+    color:beige;
+    text-align: center;
+    position: relative;
+}
+
+.AboutText {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    padding-top: 13px;
+    text-align: left;
+}
+
+.AboutImage {
+    width: 31%;
+    height: 200px;
+    border-radius: 5px;
+    margin-top: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
