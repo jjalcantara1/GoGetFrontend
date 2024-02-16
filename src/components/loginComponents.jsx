@@ -54,7 +54,7 @@ export const AuthForm = styled.form`
 
 export const Title = styled.h1`
     font-weight: bold;
-    margin: 0;
+    margin: 10;
     margin-bottom: 10px;
 `;
 
@@ -146,6 +146,7 @@ export const OverlayPanel = styled.div`
 `;
 
 export const LeftOverlayPanel = styled(OverlayPanel)`
+  left: 0;
   transform: translateX(-20%);
   background-color: #D5F3FE;
   ${props => props.signinIn !== true ? `transform: translateX(0);` : null}
@@ -154,7 +155,7 @@ export const LeftOverlayPanel = styled(OverlayPanel)`
 export const RightOverlayPanel = styled(OverlayPanel)`
     right: 0;
     transform: translateX(0);
-    background-color: #D5F3FE;
+    background-color: #001f3f;
     ${props => props.signinIn !== true ? `transform: translateX(20%);` : null}
 `;
 

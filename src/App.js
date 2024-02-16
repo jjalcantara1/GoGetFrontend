@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import LandingPage from './screens/LandingPage';
+import AboutUs from './screens/AboutUs';
 import AdminPage from './screens/AdminPage';
 import RoomTypeDetail from './components/RoomTypeDetail';
 import RoomDetails from './components/RoomDetails';
@@ -22,6 +23,9 @@ import store from './store';
 import LoginPage from './screens/LoginPage';
 import ProtectedRoute from './utils/ProtectedRoute';
 import RoomAvailabilityScreen from './screens/RoomAvailabilityScreen';
+import ContactPage from './screens/ContactPage';
+
+
 
 const appStyle = {
   position: 'relative',
@@ -41,7 +45,8 @@ const App = () => (
         <Container>
           <Routes>
             <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} exact />
-            <Route path="/home" element={<LandingPage />} exact />
+            <Route path="/" element={<LandingPage />} exact />
+            <Route path="/aboutUs" element={<AboutUs />} exact />
             <Route path="/hotels/1" element={<HotelDetails />} />
             <Route path="/roomtypes/:id" element={<RoomTypeDetail />} exact />
             <Route path="/roomtypes/new" element={<AddEditRoomType />} />
@@ -61,8 +66,11 @@ const App = () => (
             <Route path="/selectroom" element={<SelectRoom />} exact />
             <Route path='/products/:_id' element={<RoomScreen />}/>
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/contact" element={<ContactPage/>} />
           </Routes>
         </Container>
+
+
 
       </main>
       <Footer />

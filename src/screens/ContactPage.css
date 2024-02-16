@@ -1,0 +1,39 @@
+.nameStyle {
+font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+color:black;
+font-weight: bold;
+font-size:large;
+background-color: lightblue; 
+padding: 5px 10px; 
+border-radius: 5px; 
+margin-left: 320px;
+}
+.submitButtonContainer {
+    text-align: center;
+  }
+  
+  .form-control {
+    width: 50%;
+    min-height: 20px;
+    align-items: center;
+    margin:auto
+  }
+  
+  .form-container {
+    margin-top: 60px; 
+}
+
+
+.Namestyle {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color:black;
+    font-weight: bold;
+    font-size:large;
+    background-color: lightblue; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+}
+
+
+  
+
