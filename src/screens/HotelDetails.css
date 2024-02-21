@@ -1,0 +1,49 @@
+.hotel-display {
+    position: absolute;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    background-color: rgba(0, 31, 63, 0.8);
+    padding: 20px; /* Adjust padding for spacing */
+    border-radius: 3px;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto; /* Center the card horizontally */
+    left: 0;
+    right: 0;
+    top: 50%; /* Position the card vertically at 50% from the top */
+    transform: translateY(-50%); /* Adjust the vertical position to center the card */
+}
+
+.hoteldetailstitle {
+    color: white;
+    text-align: center;
+    margin-top: 75px;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Two-column layout */
+    gap: 10px; /* Adjust the gap between input fields */
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+.input-group label {
+    margin-right: 10px; /* Adjust spacing between label and input */
+}
+
+.input-group img {
+    max-width: 200px;
+}
+
+.input-field {
+    width: 100%; /* Set all input fields to 100% width */
+    box-sizing: border-box; /* Ensure the width includes padding and border */
+    padding: 5px; /* Add padding for better appearance */
+    margin-bottom: 10px; /* Add some space between input fields */
+}
