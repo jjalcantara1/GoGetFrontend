@@ -6,7 +6,7 @@ import AdminButton from '../components/AdminButton';
 import { Col} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRoomTypes, deleteRoomType } from '../actions/roomTypeActions';
-
+import '../RoomType.css';
 
 const RoomTypeList = () => {
   const navigate = useNavigate();
@@ -33,10 +33,12 @@ const RoomTypeList = () => {
 
       return (
       <div className="container">
-   
-      <h2 className="text-center my-4">ADMIN - Room Types</h2>
 
-      <Link to="/roomtypes/new"><Col md="auto"><AdminButton text="Add Room Type" /></Col></Link>
+        <div className="AdminTitle"> ADMIN - Room Types </div>
+   
+      <Link to="/roomtypes/new">
+        
+        <Col md="auto"><AdminButton className= 'RoomTitle' text="Add Room Type" /></Col></Link>
 
       <div className="card-deck">
       {roomTypes.length === 0 && <p>No room types found.</p>}

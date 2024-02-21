@@ -23,7 +23,7 @@ const AdminPage = () => {
                 <AdminButton text="ROOM TYPES" />
               </Col>
             </Link>
-            <Link to=" ">
+            <Link to="/guestlog">
               <Col md="auto">
                 <AdminButton text="GUEST LOG" />
               </Col>

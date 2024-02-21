@@ -1,0 +1,113 @@
+.AdminTitle {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: xx-large;
+    background-color: lightblue;
+    padding: 2px 5px;
+    margin-left: 320px;
+    border-radius: 3px;
+    text-align: center; /* Add this line to center the text */
+    width: 50%;
+    margin-bottom: 20px;
+
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust the height as needed */
+    width: 90%; /* Adjust the width as needed */
+    margin: 0 auto; /* This centers the container horizontally */
+    padding: 20px; /* Add padding if needed */
+  }
+  
+  
+  .form {
+    width: 600px; /* Adjust the width of the form container */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 5px;
+  }
+  
+  .button-container {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .button-container button {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: large;
+    padding: 10px 20px;
+    background-color: lightblue;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .title-container {
+    text-align: center;
+  }
+  
+  .add-room-title {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: xx-large;
+    background-color: lightblue;
+    padding: 5px 8px;
+    border-radius: 3px;
+    width: 50%;
+    margin: 0 auto; /* This centers the title horizontally */
+    margin-bottom: 20px;
+  }
+  
+  label.adminElements {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: large;
+    margin-bottom: 10px;
+    display: block;
+    background-color: lightblue; 
+    padding: 3px 5px; /* Adjust padding as needed */
+    border-radius: 1px;
+    display: inline-block;
+    
+  }
+
+  .form-group input[type="file"] {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: large;
+    color: white;
+    
+  }
+  
+  
+  
+
+
+

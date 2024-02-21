@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-
+import '../RoomType.css';
 const AddEditRoomType = () => {
   const initialFormState = {
     name: '',
@@ -67,43 +67,56 @@ const config = {
     .catch(error => console.error('Saving room type failed', error));
     };
 
-  return (
-    <div>
-      <h1>{id ? 'Edit' : 'Add'} Room Type</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" value={formState.name} onChange={handleChange} required />
-        </label>
-        <label>
-          Description:
-          <textarea name="description" value={formState.description} onChange={handleChange} required />
-        </label>
-        <label>
-          Price:
-          <input type="number" name="price" value={formState.price} onChange={handleChange} required />
-        </label>
-        <label>
-          Capacity:
-          <input type="number" name="capacity" value={formState.capacity} onChange={handleChange} required />
-        </label>
-        <label>
-          Features:
-          <input type="text" name="features" value={formState.features} onChange={handleChange} required />
-        </label>
-        <label>
-            Image:
-            <input type="file" name="image" onChange={handleImageChange} />
-            {typeof formState.image === 'string' && (
-            <img src={formState.image} alt="Room
+    return (
+      <div className="form-container">
+        <div className="form">
+        <div className="title-container">
+  <h1 className="add-room-title">{id ? 'Edit' : 'Add'} Room Type</h1>
+</div>
 
-            Type" style={{ maxWidth: '200px' }} />
-            )}
-            </label>
-        <button type="submit">{id ? 'Update' : 'Create'} Room Type</button>
-        </form>
+          <form onSubmit={handleSubmit}>
+    
+            <div className="form-group">
+              <label className="adminElements">Name:</label>
+              <input type="text" name="name" value={formState.name} onChange={handleChange} required />
+            </div>
+    
+            <div className="form-group">
+              <label className="adminElements">Description:</label>
+              <textarea name="description" value={formState.description} onChange={handleChange} required />
+            </div>
+    
+            <div className="form-group">
+              <label className="adminElements">Price:</label>
+              <input type="number" name="price" value={formState.price} onChange={handleChange} required />
+            </div>
+    
+            <div className="form-group">
+              <label className="adminElements">Capacity:</label>
+              <input type="number" name="capacity" value={formState.capacity} onChange={handleChange} required />
+            </div>
+    
+            <div className="form-group">
+              <label className="adminElements">Features:</label>
+              <input type="text" name="features" value={formState.features} onChange={handleChange} required />
+            </div>
+    
+            <div className="form-group">
+              <label className="adminElements">Image:</label>
+              <input type="file" name="image" onChange={handleImageChange} />
+              {typeof formState.image === 'string' && (
+                <img src={formState.image} alt="Room Type" style={{ maxWidth: '200px' }} />
+              )}
+            </div>
+    
+            <div className="button-container">
+              <button type="submit">{id ? 'Update' : 'Create'} Room Type</button>
+            </div>
+          </form>
         </div>
-        );
+      </div>
+    );
+    
         };
         
 export default AddEditRoomType;

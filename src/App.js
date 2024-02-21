@@ -9,7 +9,6 @@ import RoomTypeList from './screens/RoomTypeList';
 import AddEditRoomType from './components/AddEditRoomType';
 import AddRoomPage from './screens/AddRoomPage';
 import EditRoomPage from './screens/EditRoomPage';
-import HotelDetails from './components/HotelDetails'
 import './bootstrap.min.css'; 
 
 import Footer from "./components/Footer";
@@ -24,6 +23,7 @@ import LoginPage from './screens/LoginPage';
 import ProtectedRoute from './utils/ProtectedRoute';
 import RoomAvailabilityScreen from './screens/RoomAvailabilityScreen';
 import ContactPage from './screens/ContactPage';
+import GuestLog from './/components/GuestLog';
 
 
 
@@ -46,8 +46,8 @@ const App = () => (
           <Routes>
             <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} exact />
             <Route path="/" element={<LandingPage />} exact />
-  
-            <Route path="/hotels/1" element={<HotelDetails />} />
+            <Route path="/aboutUs" element={<AboutUs />} exact />
+
             <Route path="/roomtypes/:id" element={<RoomTypeDetail />} exact />
             <Route path="/roomtypes/new" element={<AddEditRoomType />} />
             <Route path="/roomtypes/:id/edit" element={<AddEditRoomType />} />
@@ -56,6 +56,7 @@ const App = () => (
             <Route path="/roomtypes/:roomTypeId/addroom" element={<AddRoomPage />} />
             <Route path="/rooms/:roomId/edit" element={<EditRoomPage />} />
             <Route path="/booknow" element={<RoomAvailabilityScreen />} />
+            <Route path="/guestlog" element={<GuestLog />} />
           </Routes>
         
         </Container>
