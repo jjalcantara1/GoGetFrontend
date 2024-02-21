@@ -47,6 +47,8 @@ const App = () => (
             <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} exact />
             <Route path="/" element={<LandingPage />} exact />
             <Route path="/aboutUs" element={<AboutUs />} exact />
+            <Route path="/hotels/1" element={<HotelDetails />} />
+            
 
             <Route path="/roomtypes/:id" element={<RoomTypeDetail />} exact />
             <Route path="/roomtypes/new" element={<AddEditRoomType />} />
