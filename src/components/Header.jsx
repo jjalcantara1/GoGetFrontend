@@ -22,7 +22,7 @@ function Header() {
         <div className="collapse navbar-collapse" id="navbarColor01">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item item1">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="AboutUs">
                 About
                 <span className="visually-hidden">(current)</span>
               </a>
@@ -33,12 +33,12 @@ function Header() {
               </a>
             </li>
             <li className="nav-item item3">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="Faqs">
                 FAQs
               </a>
             </li>
             <li className="nav-item item4">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="ContactUs">
                 Contact Us
               </a>
             </li>

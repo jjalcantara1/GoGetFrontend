@@ -2,9 +2,9 @@ import React from "react";
 import "./About.css";
 import Header from "../components/Header";
 import LandingPageWallpaper from "../LandingPageWallpaper.jpg";
-import AboutUs1 from "../AboutUs1.jpg";
-import AboutUs2 from "../AboutUs2.jpg";
-import AboutUs3 from "../AboutUs3.jpg";
+import AboutUs1 from "../AboutUsPics/AboutUs1.jpg";
+import AboutUs2 from "../AboutUsPics/AboutUs2.jpg";
+import AboutUs3 from "../AboutUsPics/AboutUs3.jpg";
 
 const AboutStyle = {
   position: "absolute", // Change to absolute

@@ -20,4 +20,20 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.FaqsImage {
+    width: 31%;
+    height: 175px;
+    border-radius: 5px;
+    margin-top: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.questions {
+    font-weight: 500;
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 0;
+    padding-top: 10px;
+}
+
 

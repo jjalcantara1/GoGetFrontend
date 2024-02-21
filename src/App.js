@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import LandingPage from './screens/LandingPage';
 import AboutUs from './screens/AboutUs';
+import Faqs from './screens/Faqs';
 import AdminPage from './screens/AdminPage';
 import HotelDetails from './screens/HotelDetails';
 import RoomTypeDetail from './components/RoomTypeDetail';
@@ -25,6 +26,7 @@ import ProtectedRoute from './utils/ProtectedRoute';
 import RoomAvailabilityScreen from './screens/RoomAvailabilityScreen';
 import ContactPage from './screens/ContactPage';
 import GuestLog from './components/GuestLog';
+
 
 
 
@@ -58,6 +60,7 @@ const App = () => (
             <Route path="/roomtypes/:roomTypeId/addroom" element={<AddRoomPage />} />
             <Route path="/rooms/:roomId/edit" element={<EditRoomPage />} />
             <Route path="/booknow" element={<RoomAvailabilityScreen />} />
+            <Route path="/FAQs" element={<Faqs />} />
             <Route path="/guestlog" element={<GuestLog />} />
           </Routes>
         
