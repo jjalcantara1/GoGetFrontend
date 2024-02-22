@@ -29,7 +29,6 @@ import GuestLog from './components/GuestLog';
 
 
 
-
 const appStyle = {
   position: 'relative',
   backgroundImage: `url(${wallpaper})`,

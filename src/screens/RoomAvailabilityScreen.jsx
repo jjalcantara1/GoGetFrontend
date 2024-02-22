@@ -6,6 +6,7 @@ import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkRoomAvailability } from '../actions/roomAvailabilityActions'; // Adjust the path as necessary
 import { getAllRoomTypes } from '../actions/roomTypeActions';
+import FilterCapacity from '../components/FilterCapacity';
 
 Modal.setAppElement('#root');
 
@@ -26,6 +27,9 @@ const RoomAvailabilityScreen = () => {
       start: todayStr,
       end: tomorrowStr,
     });
+
+    // Set selected Capacity
+    const [selectedCapacity, setSelectedCapacity] = useState('');
   
     const dispatch = useDispatch();
     const roomAvailability = useSelector((state) => state.roomAvailability);
@@ -46,7 +50,10 @@ const RoomAvailabilityScreen = () => {
     // Dispatch action to check room availability with selected dates
     dispatch(checkRoomAvailability(start, end));
   };
-
+  const handleFilterChange = (selectedCapacity) => {
+    setSelectedCapacity(selectedCapacity);
+  }
+  const filteredRooms = rooms.filter(room => room.capacity === selectedCapacity);
   return (
     <div>
       <button onClick={() => setModalIsOpen(true)}>Select Dates</button>
@@ -72,7 +79,7 @@ const RoomAvailabilityScreen = () => {
           select={handleDateSelect}
         />
       </Modal>
-
+      <FilterCapacity onFilterChange={handleFilterChange} />
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       {rooms && rooms.length > 0 ? (
@@ -83,6 +90,13 @@ const RoomAvailabilityScreen = () => {
               Showing availability for: {selectedDates.start} to {selectedDates.end}
             </p>
           )}
+          {filteredRooms.map((roomType) => (
+            <div key={roomType.id}>
+              <h3>{roomType.name}</h3>
+              <p>Price per night: {roomType.price}</p>
+              <button>Book Room</button>
+            </div>
+          ))}
           {rooms.map((roomType) => (
             <div key={roomType.id}>
               <h3>{roomType.name}</h3>
@@ -92,7 +106,7 @@ const RoomAvailabilityScreen = () => {
           ))}
         </div>
       ) : (
-        <p>No rooms available for the selected dates.</p>
+        <p>No rooms available for the selected dates and C.</p>
       )}
     </div>
   );
