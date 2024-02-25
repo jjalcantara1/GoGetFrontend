@@ -20,12 +20,7 @@ function ContactPage() {
                         <Form.Label className='nameStyle'>Email</Form.Label>
                         <Form.Control type="email" placeholder=" " />
                     </Form.Group>
-
-                    <Form.Group className="mb-5" controlId="formBasicContactNumber">
-                        <Form.Label className='nameStyle'>Contact Number</Form.Label>
-                        <Form.Control type="contact number" placeholder=" " />
-                    </Form.Group>
-
+                    
                     <Form.Group className="mb-5" controlId="formBasicSubject">
                         <Form.Label className='nameStyle'>Subject</Form.Label>
                         <Form.Control type="subject" placeholder=" " />

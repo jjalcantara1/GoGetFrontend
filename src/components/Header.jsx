@@ -32,6 +32,11 @@ function Header() {
                 Rooms
               </a>
             </li>
+            <li className="nav-item item5">
+              <a className="nav-link" href="https://www.facebook.com/GoGetHotels/reviews">
+                Reviews
+              </a>
+            </li>
             <li className="nav-item item3">
               <a className="nav-link" href="Faqs">
                 FAQs
