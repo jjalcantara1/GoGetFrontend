@@ -35,7 +35,7 @@ const appStyle = {
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
-  minHeight: '100vh',
+  minHeight: '80vh',
 };
 
 const App = () => (
@@ -69,7 +69,7 @@ const App = () => (
         
           <Routes>
             <Route path="/selectroom" element={<SelectRoom />} exact />
-            <Route path='/products/:_id' element={<RoomScreen />}/>
+            <Route path='/products/' element={<RoomScreen />}/>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/contact" element={<ContactPage/>} />
           </Routes>

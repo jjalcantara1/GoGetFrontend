@@ -1,22 +1,28 @@
-import React from "react";
-import { Row, Col } from "react-bootstrap";
-import products from "../products";
-import Product from "../components/Product"; // Adjust the relative path as needed
+import React, { useEffect } from "react";
+import { Container, Row } from "react-bootstrap";
+import { fetchRoomTypes } from "../actions/roomTypeActions";
+import { useDispatch, useSelector } from "react-redux";
+import Product from "../components/Product";
 import "../SelectRoom.css";
+
 function SelectRoom() {
+  const dispatch = useDispatch();
+  const roomTypes = useSelector((state) => state.roomTypes.roomTypes);
+
+  useEffect(() => {
+    dispatch(fetchRoomTypes());
+  }, [dispatch]);
+
   return (
-    <>
-      <div>
-        <h1 className="title">Available Rooms</h1>
-        <Row>
-          {products.map((product) => (
-            <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-              <Product product={product} />
-            </Col>
+    <Container fluid>
+      <h1 className="title">Available Rooms</h1>
+      <Row className="product-grid">
+        {roomTypes &&
+          roomTypes.map((type, index) => (
+            <Product key={index} product={type} />
           ))}
-        </Row>
-      </div>
-    </>
+      </Row>
+    </Container>
   );
 }
 
