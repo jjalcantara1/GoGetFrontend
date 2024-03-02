@@ -26,6 +26,7 @@ import ProtectedRoute from './utils/ProtectedRoute';
 import RoomAvailabilityScreen from './screens/RoomAvailabilityScreen';
 import ContactPage from './screens/ContactPage';
 import GuestLog from './components/GuestLog';
+import OrderScreen from './screens/OrderScreen';
 
 
 
@@ -61,6 +62,7 @@ const App = () => (
             <Route path="/booknow" element={<RoomAvailabilityScreen />} />
             <Route path="/FAQs" element={<Faqs />} />
             <Route path="/guestlog" element={<GuestLog />} />
+            <Route path="/order" element={<OrderScreen />} />
           </Routes>
         
         </Container>
