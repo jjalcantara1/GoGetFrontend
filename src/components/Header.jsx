@@ -43,7 +43,7 @@ function Header() {
               </a>
             </li>
             <li className="nav-item item4">
-              <a className="nav-link" href="ContactUs">
+              <a className="nav-link" href="contact">
                 Contact Us
               </a>
             </li>
