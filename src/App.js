@@ -26,6 +26,7 @@ import ProtectedRoute from './utils/ProtectedRoute';
 import RoomAvailabilityScreen from './screens/RoomAvailabilityScreen';
 import ContactPage from './screens/ContactPage';
 import GuestLog from './components/GuestLog';
+import OrderScreen from './screens/OrderScreen';
 
 
 
@@ -35,7 +36,7 @@ const appStyle = {
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
-  minHeight: '100vh',
+  minHeight: '80vh',
 };
 
 const App = () => (
@@ -61,6 +62,7 @@ const App = () => (
             <Route path="/booknow" element={<RoomAvailabilityScreen />} />
             <Route path="/FAQs" element={<Faqs />} />
             <Route path="/guestlog" element={<GuestLog />} />
+            <Route path="/order" element={<OrderScreen />} />
           </Routes>
         
         </Container>
@@ -69,7 +71,7 @@ const App = () => (
         
           <Routes>
             <Route path="/selectroom" element={<SelectRoom />} exact />
-            <Route path='/products/:_id' element={<RoomScreen />}/>
+            <Route path='/products/' element={<RoomScreen />}/>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/contact" element={<ContactPage/>} />
           </Routes>

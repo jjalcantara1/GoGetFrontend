@@ -1,30 +1,41 @@
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  height: 80%;
+}
+
 .title {
-  font-weight: 100;
-  color: aliceblue;
-  padding-bottom: 0px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  color: whitesmoke;
+  padding-bottom: 10px;
+  font-size: 40px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .roomPic {
-  position: relative;
-  top: 0vh;
-  height: 175px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.roomPic:hover {
+  background-color: #ffffff;
 }
 
 .link-no-underline {
   color: black;
   font-size: 60px;
-  text-align: Left;
+  text-align: left;
   top: 7.5px;
   bottom: 0vh;
   text-decoration: none;
-  
 }
+
 .price-of-room {
   text-align: left;
   margin-right: 0%;
-  font-size: large;
+  font-size: 24px;
   bottom: 10vh;
   top: 5px;
   text-decoration: none;
@@ -32,32 +43,44 @@
 }
 
 .custom-card {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(245, 245, 245, 0.7) !important;
 }
 
 .indivCard {
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
-.grid-container {
-  background-color: rgba(0, 31, 63, 0.7);
-  padding: 20px;
-  margin: 10px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px; /* Optional width for each card */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px 16px 64px 16px; /* Increased padding at the bottom for the button */
+  position: relative; /* Added to position the button relatively */
 }
 
 .Book-Now-Button {
-  margin-top: 15px;
-  margin-left: 97px;
-  margin-right: 0;
+  position: absolute; /* Position the button absolutely */
+  bottom: 16px; /* Move the button to the bottom right side */
+  right: 16px;
+  margin-top: 0; /* Remove margin-top */
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #001f3f;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Book-Now-Button:hover {
+  background-color: #0069d9;
 }
 
 .roomText {
   text-align: justify;
   text-decoration: none;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .btn-block {

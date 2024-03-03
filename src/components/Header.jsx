@@ -1,12 +1,13 @@
 import React from "react";
 import "./Header.css";
+import HotelLogo from "../AboutUsPics/HotelLogo.png"; // Import your logo file
 
 function Header() {
   return (
     <nav className="navbar navbar-expand bg-primary" data-bs-theme="dark">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
-          GoGet
+        <img src={HotelLogo} alt="Hotel Logo" className="hotel-logo" />
         </a>
         <button
           className="navbar-toggler"

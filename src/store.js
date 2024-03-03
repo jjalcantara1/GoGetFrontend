@@ -5,7 +5,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { roomReducer } from './reducers/roomReducer'; 
 import { loginReducer } from './reducers/loginReducer';
 import { roomAvailabilityReducer } from './reducers/roomAvailabilityReducer';
-import roomTypesReducer from './reducers/roomTypesReducer';
+import  roomTypesReducer  from './reducers/roomTypesReducer';
 
 const reducer = combineReducers({
   room: roomReducer,
