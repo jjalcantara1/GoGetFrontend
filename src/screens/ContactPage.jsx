@@ -16,6 +16,25 @@ function ContactPage() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    const showSubmissionMessage = () => {
+        const messageElement = document.createElement('div');
+        messageElement.textContent = 'Your response has been successfully submitted. Thank you!';
+        messageElement.style.backgroundColor = 'lightblue';
+        messageElement.style.color = 'black';
+        messageElement.style.padding = '10px';
+        messageElement.style.marginTop = '20px';
+        messageElement.style.textAlign = 'center';
+        messageElement.style.fontFamily = 'Arial';
+        messageElement.style.fontWeight = 'bold';
+
+        const formContainer = document.querySelector('.form-container');
+        formContainer.appendChild(messageElement);
+
+        setTimeout(() => {
+            formContainer.removeChild(messageElement);
+        }, 5000); 
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -28,7 +47,7 @@ function ContactPage() {
             });
             if (response.ok) {
                 console.log('Email sent successfully');
-                // Optionally, you can redirect the user or show a success message
+                showSubmissionMessage();
             } else {
                 console.error('Failed to send email');
             }
