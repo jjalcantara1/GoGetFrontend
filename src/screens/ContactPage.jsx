@@ -12,6 +12,8 @@ function ContactPage() {
         message: ''
     });
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -37,6 +39,13 @@ function ContactPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (isSubmitting) {
+            return; // Prevent multiple submissions
+        }
+
+        setIsSubmitting(true);
+
         try {
             const response = await fetch('/api/contact/', {
                 method: 'POST',
@@ -48,11 +57,14 @@ function ContactPage() {
             if (response.ok) {
                 console.log('Email sent successfully');
                 showSubmissionMessage();
+                setFormData({ name: '', email: '', subject: '', message: '' });
             } else {
                 console.error('Failed to send email');
             }
         } catch (error) {
             console.error('Error sending email:', error);
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -84,7 +96,7 @@ function ContactPage() {
 
                     <div className="submitButtonContainer">
                         <Button className='Namestyle' variant="primary" type="submit">
-                            SUBMIT
+                            {isSubmitting ? 'Submitting...' : 'SUBMIT'}
                         </Button>
                     </div>
                 </Form>
