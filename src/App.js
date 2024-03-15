@@ -50,18 +50,17 @@ const App = () => (
             <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} exact />
             <Route path="/" element={<LandingPage />} exact />
             <Route path="/aboutUs" element={<AboutUs />} exact />
-            <Route path="/hotels/1" element={<HotelDetails />} exact />
-        
-            <Route path="/roomtypes/:id" element={<RoomTypeDetail />} exact />
-            <Route path="/roomtypes/new" element={<AddEditRoomType />} />
-            <Route path="/roomtypes/:id/edit" element={<AddEditRoomType />} />
-            <Route path="/roomtypes" element={<RoomTypeList />} exact />
-            <Route path="/roomtypes/:roomTypeId/rooms" element={<RoomDetails />} />
-            <Route path="/roomtypes/:roomTypeId/addroom" element={<AddRoomPage />} />
-            <Route path="/rooms/:roomId/edit" element={<EditRoomPage />} />
+            <Route path="/hotels/1" element={<ProtectedRoute><HotelDetails /></ProtectedRoute>} exact />
+            <Route path="/roomtypes/:id" element={<ProtectedRoute><RoomTypeDetail /></ProtectedRoute>} exact />
+            <Route path="/roomtypes/new" element={<ProtectedRoute><AddEditRoomType /></ProtectedRoute>} exact />
+            <Route path="/roomtypes/:id/edit" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} exact />
+            <Route path="/roomtypes" element={<ProtectedRoute><RoomTypeList /></ProtectedRoute>} exact />
+            <Route path="/roomtypes/:roomTypeId/rooms" element={<ProtectedRoute><RoomDetails /></ProtectedRoute>} exact />
+            <Route path="/roomtypes/:roomTypeId/addroom" element={<ProtectedRoute><AddRoomPage /></ProtectedRoute>} exact />
+            <Route path="/rooms/:roomId/edit" element={<ProtectedRoute><EditRoomPage /></ProtectedRoute>} exact />
             <Route path="/booknow" element={<RoomAvailabilityScreen />} />
             <Route path="/FAQs" element={<Faqs />} />
-            <Route path="/guestlog" element={<GuestLog />} />
+            <Route path="/guestlog" element={<ProtectedRoute><GuestLog /></ProtectedRoute>} exact />
             <Route path="/order" element={<OrderScreen />} />
           </Routes>
         
