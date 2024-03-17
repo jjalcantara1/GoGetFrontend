@@ -27,6 +27,9 @@ import RoomAvailabilityScreen from './screens/RoomAvailabilityScreen';
 import ContactPage from './screens/ContactPage';
 import GuestLog from './components/GuestLog';
 import OrderScreen from './screens/OrderScreen';
+import PromoScreen from './screens/PromoScreen';
+import PromoEditScreen from './screens/PromoEditScreen';
+import PromoRedeem from './components/PromoRedeem';
 
 
 
@@ -63,6 +66,8 @@ const App = () => (
             <Route path="/FAQs" element={<Faqs />} />
             <Route path="/guestlog" element={<GuestLog />} />
             <Route path="/order" element={<OrderScreen />} />
+            <Route path="/promos" element={<PromoScreen />} />
+            <Route path="/editPromo" element={<PromoEditScreen />} />
           </Routes>
         
         </Container>
@@ -74,6 +79,7 @@ const App = () => (
             <Route path='/products/' element={<RoomScreen />}/>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/contact" element={<ContactPage/>} />
+            <Route path="/redeem" element={<PromoRedeem/>} />
           </Routes>
         </Container>
 
