@@ -1,12 +1,13 @@
 import axios from 'axios';
 
-export const checkRoomAvailability = (startDate, endDate) => async (dispatch) => {
+// actions/roomAvailabilityActions.js
+
+export const checkRoomAvailability = (startDate, endDate, guestCount = '1') => async (dispatch) => {
   try {
     dispatch({ type: 'ROOM_AVAILABILITY_REQUEST' });
 
-    // Update the URL to point to the 'available-room-types' endpoint
-    const { data } = await axios.get(`http://localhost:8000/api/available-room-types/?start_date=${startDate}&end_date=${endDate}`);
-
+    const url = `http://localhost:8000/api/available-room-types/?start_date=${encodeURIComponent(startDate)}&end_date=${encodeURIComponent(endDate)}&guest_count=${encodeURIComponent(guestCount)}`;
+    const { data } = await axios.get(url);
     dispatch({
       type: 'ROOM_AVAILABILITY_SUCCESS',
       payload: data,
@@ -18,3 +19,4 @@ export const checkRoomAvailability = (startDate, endDate) => async (dispatch) =>
     });
   }
 };
+
