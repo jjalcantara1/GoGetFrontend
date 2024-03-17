@@ -7,7 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { checkRoomAvailability } from '../actions/roomAvailabilityActions';
 import { Container, Button, Row, Col, Form, Card } from 'react-bootstrap';
 import RoomTypeSelector from '../components/RoomTypeSelector';
-import BookingSummary from '../components/BookingSummary';
+import BookingSummary from '../components/BookingSummary';import { differenceInCalendarDays, parseISO } from 'date-fns'; // Import differenceInCalendarDays from date-fns
+
 
 Modal.setAppElement('#root');
 
@@ -21,6 +22,8 @@ const RoomAvailabilityScreen = () => {
   const dispatch = useDispatch();
 
   const { loading, error, rooms } = useSelector((state) => state.roomAvailability);
+  const [selectedNumDays, setSelectedNumDays] = useState(1);
+
 
   useEffect(() => {
     dispatch(checkRoomAvailability(selectedDates.start, selectedDates.end));
@@ -31,6 +34,9 @@ const RoomAvailabilityScreen = () => {
       start: selectInfo.startStr,
       end: selectInfo.endStr,
     });
+    // Calculate the number of days selected
+    const numDays = differenceInCalendarDays(parseISO(selectInfo.endStr), parseISO(selectInfo.startStr));
+    setSelectedNumDays(numDays);
     setModalIsOpen(false);
   };
 
@@ -95,7 +101,7 @@ const RoomAvailabilityScreen = () => {
         />
       ))}
       
-      <BookingSummary roomsDetails={roomsDetails} />
+      <BookingSummary roomsDetails={roomsDetails} selectedNumDays={selectedNumDays} />
     </Container>
   );
 };
