@@ -7,6 +7,7 @@ import { Col} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRoomTypes, deleteRoomType } from '../actions/roomTypeActions';
 import '../RoomType.css';
+import BlankHeader from "../components/BlankHeader";
 
 const RoomTypeList = () => {
   const navigate = useNavigate();
@@ -32,6 +33,9 @@ const RoomTypeList = () => {
   };
 
       return (
+
+        <>
+      <BlankHeader />
       <div className="container">
 
         <div className="AdminTitle"> ADMIN - Room Types </div>
@@ -62,6 +66,7 @@ const RoomTypeList = () => {
       ))}
       </div>
       </div>
+      </>
       );
       };
       

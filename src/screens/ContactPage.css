@@ -1,3 +1,4 @@
+/* ContactPage.css */
 .nameStyle {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: black;
@@ -25,7 +26,7 @@
 }
 
 .form-container {
-  margin-top: 80px;
+  margin-top: 10px;
   text-align: center; 
   width: 100%;
 }
@@ -38,4 +39,20 @@
   background-color: lightblue; 
   padding: 5px 10px; 
   border-radius: 5px; 
+}
+
+.ContactTitle {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: white;
+  font-weight: bold;
+  font-size: x-large;
+  background-color: #23395d; 
+  padding: 5px 8px; 
+  border-radius: 5px;
+  display: inline-block; 
+  width: 180px; 
+  text-align: center; 
+  margin-right: 500px; 
+  margin-left: 500px;
+  margin-bottom: 1%;
 }
