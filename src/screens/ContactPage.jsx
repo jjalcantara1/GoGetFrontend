@@ -1,7 +1,9 @@
+// ContactPage.jsx
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal'; // Import Modal component
 import './ContactPage.css';
 
 function ContactPage() {
@@ -13,28 +15,10 @@ function ContactPage() {
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showModal, setShowModal] = useState(false); // State to control the modal visibility
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const showSubmissionMessage = () => {
-        const messageElement = document.createElement('div');
-        messageElement.textContent = 'Your response has been successfully submitted. Thank you!';
-        messageElement.style.backgroundColor = 'lightblue';
-        messageElement.style.color = 'black';
-        messageElement.style.padding = '10px';
-        messageElement.style.marginTop = '20px';
-        messageElement.style.textAlign = 'center';
-        messageElement.style.fontFamily = 'Arial';
-        messageElement.style.fontWeight = 'bold';
-
-        const formContainer = document.querySelector('.form-container');
-        formContainer.appendChild(messageElement);
-
-        setTimeout(() => {
-            formContainer.removeChild(messageElement);
-        }, 5000); 
     };
 
     const handleSubmit = async (e) => {
@@ -56,7 +40,7 @@ function ContactPage() {
             });
             if (response.ok) {
                 console.log('Email sent successfully');
-                showSubmissionMessage();
+                setShowModal(true); // Show the modal upon successful submission
                 setFormData({ name: '', email: '', subject: '', message: '' });
             } else {
                 console.error('Failed to send email');
@@ -68,11 +52,15 @@ function ContactPage() {
         }
     };
 
+    const closeModal = () => {
+        setShowModal(false); // Function to close the modal
+    };
+
     return (
         <>
             <Header />
-
             <div className="form-container">
+                <h1 className="ContactTitle">Contact Form</h1>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-5" controlId="formBasicName">
                         <Form.Label className='nameStyle'>Name</Form.Label>
@@ -101,6 +89,18 @@ function ContactPage() {
                     </div>
                 </Form>
             </div>
+            {/* Modal for submission message */}
+            <Modal show={showModal} onHide={closeModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Submission Successful</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Your response has been successfully submitted. Thank you!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={closeModal}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </>
     );
 }

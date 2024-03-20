@@ -39,7 +39,7 @@ export const getAllRoomTypes = () => async (dispatch) => {
         type: FETCH_ROOM_TYPES_SUCCESS,
         payload: data,
       });
-      console.log(response.data);
+  
     } catch (error) {
       dispatch({
         type: FETCH_ROOM_TYPES_FAIL,

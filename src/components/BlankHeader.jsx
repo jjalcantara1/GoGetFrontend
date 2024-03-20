@@ -1,11 +1,25 @@
 import React from "react";
 import "./Header.css";
 import HotelLogo from "../AboutUsPics/HotelLogo.png"; // Import your logo file
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook to navigate back
 
 function BlankHeader() {
+  const navigate = useNavigate(); // Initialize useNavigate hook
+
+  // Function to handle back button click
+  const handleBackButtonClick = () => {
+    navigate(-1); // Use navigate(-1) to navigate back
+  };
+
   return (
     <nav className="navbar navbar-expand bg-primary" data-bs-theme="dark">
       <div className="container-fluid">
+        <button
+          className="back-button"
+          onClick={handleBackButtonClick} // Attach onClick event to the handleBackButtonClick function
+        >
+          Back
+        </button>
         <a className="navbar-brand" href="/">
           <img src={HotelLogo} alt="Hotel Logo" className="hotel-logo" />
         </a>
@@ -26,3 +40,4 @@ function BlankHeader() {
 }
 
 export default BlankHeader;
+
