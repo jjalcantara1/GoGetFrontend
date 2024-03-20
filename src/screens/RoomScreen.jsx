@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchRoomTypesDetail } from '../actions/roomTypeActions';
 import '../SelectRoom.css';
 import { useParams } from 'react-router-dom';
-import BlankHeader from "../components/BlankHeader";
+import HeaderNoBack from "../components/HeaderNoBack";
 import './RoomScreenText.css';
 
 function RoomScreen() {
@@ -21,7 +21,7 @@ function RoomScreen() {
     
     return (
         <>
-            <BlankHeader />
+            <HeaderNoBack />
             <div className='Contents'>
                 <Link to="/selectroom" className="btn btn-light my-3">
                     Back to Room Selection
@@ -35,9 +35,9 @@ function RoomScreen() {
                         <div className="centered">
                             <Row>
                                 <Col md={5}>
-                                <Card className="indivCard1">
-                                <Image src={roomTypes.image} alt={roomTypes.name} className='RoomImage'></Image>
-                                </Card>
+                                    <Card className="indivCard1">
+                                        <Image src={roomTypes.image} alt={roomTypes.name} className='RoomImage'></Image>
+                                    </Card>
                                 </Col>
                                 <Col md={5}>
                                     <Card className="indivCard">
@@ -63,78 +63,79 @@ function RoomScreen() {
                                                         {roomTypes.countInStock > 0 ? 'Available' : 'Fully Booked'}
                                                     </Col>
                                                 </Row>
-                                            </ListGroupItem>
+                                            </ListGroupItem>                                            
                                             <ListGroupItem>
-                                                <Button
-                                                    className="RoomScreenBook"
-                                                    type="button"
-                                                    disabled={roomTypes.countInStock === 0}
-                                                >
-                                                    Book a Room
-                                                </Button>
+                                                <Link to="/booknow" className="RoomScreenBook">
+                                                    <Button
+                                                        type="button"
+                                                        disabled={roomTypes.countInStock === 0}
+                                                    >
+                                                        Book a Room
+                                                    </Button>
+                                                </Link>
                                             </ListGroupItem>
                                         </ListGroup>
                                     </Card>
                                 </Col>
                             </Row>
                             <div className='moreRows'>
-                            {/* Add margin between additional rows */}
-                            <div className="additionalRows" style={{ marginTop: '20px' }}>
-                                <Row>
-                                    <Col>
-                                        <h3 className='detailedText'>{roomTypes.name}</h3>
-                                    </Col>
-                                    <Col>
-                                    <h3 className='detailedTextFilter'>
-                                        - NON-Smoking Room
-                                    </h3>
-                                    <h3 className='detailedTextFilter'>
-                                        - No Pets
-                                    </h3>
-                                    </Col>
-                                    <Col>
-                                    <h3 className='detailedTextPrice'>₱{roomTypes.price}/per night</h3>
-                                    </Col>
-                                </Row>
-                            </div>
-                            <div className="additionalRows" style={{ marginTop: '20px' }}>
-                                <Row>
-                                    <Col>
-                                    <h3 className='detailedText'>'Pet Friendly'</h3>
-                                        <h3 className='detailedText'>{roomTypes.name}</h3>
-                                    </Col>
-                                    <Col>
-                                    <h3 className='detailedTextFilter'>
-                                        - NON-Smoking Room
-                                    </h3>
-                                    <h3 className='detailedTextFilter'>
-                                        - Pets are allowed
-                                    </h3>
-                                    </Col>
-                                    <Col>
-                                    <h3 className='detailedTextPrice'>₱{roomTypes.price}/per night</h3>
-                                    </Col>
-                                </Row>
-                            </div>
-                            <div className="additionalRows" style={{ marginTop: '20px' }}>
-                                <Row>
-                                    <Col>
-                                    <h3 className='detailedText'>'SMOKING'</h3>
-                                        <h3 className='detailedText'>{roomTypes.name}</h3>
-                                    </Col>
-                                    <Col>
-                                    <h3 className='detailedTextFilter'>
-                                        - Smoking Room
-                                    </h3>
-                                    <h3 className='detailedTextFilter'>
-                                        - No Pets
-                                    </h3>
-                                    </Col>
-                                    <Col>
-                                    <h3 className='detailedTextPrice'>₱{roomTypes.price}/per night</h3>
-                                    </Col>
-                                </Row>
-                            </div>
+                                {/* Add margin between additional rows */}
+                                <div className="additionalRows" style={{ marginTop: '20px' }}>
+                                    <Row>
+                                        <Col>
+                                            <h3 className='detailedText'>{roomTypes.name}</h3>
+                                        </Col>
+                                        <Col>
+                                            <h3 className='detailedTextFilter'>
+                                                - NON-Smoking Room
+                                            </h3>
+                                            <h3 className='detailedTextFilter'>
+                                                - No Pets
+                                            </h3>
+                                        </Col>
+                                        <Col>
+                                            <h3 className='detailedTextPrice'>₱{roomTypes.price}/per night</h3>
+                                        </Col>
+                                    </Row>
+                                </div>
+                                <div className="additionalRows" style={{ marginTop: '20px' }}>
+                                    <Row>
+                                        <Col>
+                                            <h3 className='detailedText'>'Pet Friendly'</h3>
+                                            <h3 className='detailedText'>{roomTypes.name}</h3>
+                                        </Col>
+                                        <Col>
+                                            <h3 className='detailedTextFilter'>
+                                                - NON-Smoking Room
+                                            </h3>
+                                            <h3 className='detailedTextFilter'>
+                                                - Pets are allowed
+                                            </h3>
+                                        </Col>
+                                        <Col>
+                                            <h3 className='detailedTextPrice'>₱{roomTypes.price}/per night</h3>
+                                        </Col>
+                                    </Row>
+                                </div>
+                                <div className="additionalRows" style={{ marginTop: '20px' }}>
+                                    <Row>
+                                        <Col>
+                                            <h3 className='detailedText'>'SMOKING'</h3>
+                                            <h3 className='detailedText'>{roomTypes.name}</h3>
+                                        </Col>
+                                        <Col>
+                                            <h3 className='detailedTextFilter'>
+                                                - Smoking Room
+                                            </h3>
+                                            <h3 className='detailedTextFilter'>
+                                                - No Pets
+                                            </h3>
+                                        </Col>
+                                        <Col>
+                                            <h3 className='detailedTextPrice'>₱{roomTypes.price}/per night</h3>
+                                        </Col>
+                                    </Row>
+                                </div>
                             </div>
                         </div>
                     )
