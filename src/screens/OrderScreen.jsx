@@ -5,14 +5,16 @@ function OrderScreen() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [contactNumber, setContactNumber] = useState('');
+  const [bookingId, setBookingId] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/book/', {
+      const response = await axios.post('http://127.0.0.1:8000/book/order', {
         name: name,
         email: email,
-        contact_no: contactNumber // Use consistent field name
+        contact_no: contactNumber,
+        booking_id: bookingId // Use consistent field name
       });
       console.log(response.data); // Log response for debugging
       // Handle success response
@@ -33,7 +35,20 @@ function OrderScreen() {
   
         <label htmlFor="email">Email:</label><br />
         <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required /><br /><br />
+
+        <label htmlFor="bookingId">Booking ID:</label><br />
+        <input
+          type="text"
+          id="bookingId"
+          value={bookingId}
+          onChange={(e) => setBookingId(e.target.value)}
+          required
+        /><br /><br />
+        
         <input type="submit" value="Submit" />
+
+       
+  
       </form>
     </div>
   );
