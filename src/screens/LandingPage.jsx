@@ -40,7 +40,7 @@ function LandingPage() {
         <h1 className="HotelName">GoGet</h1>
 
         <div className="button">
-          <Link to="/selectroom" className="bookNow">
+          <Link to="/booknow" className="bookNow">
             BOOK NOW
           </Link>
         </div>

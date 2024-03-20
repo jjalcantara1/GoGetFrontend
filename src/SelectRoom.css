@@ -11,7 +11,7 @@
   color: whitesmoke;
   padding-bottom: 10px;
   font-size: 40px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .roomPic {
@@ -40,10 +40,6 @@
   top: 5px;
   text-decoration: none;
   color: #001f3f;
-}
-
-.custom-card {
-  background-color: rgba(245, 245, 245, 0.7) !important;
 }
 
 .indivCard {
@@ -86,3 +82,77 @@
 .btn-block {
   margin-left: 20px;
 }
+
+.bookNowButton:hover {
+  background-color: #ff9900;
+}
+
+.bookNowButton {
+  position: absolute;
+  left: 50%;
+  top: 85%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 65px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.Contents {
+  padding-top: 3rem;
+}
+
+
+/* Remove vertical-align property from .RoomScreenBook */
+.RoomScreenBook {
+  position: absolute;
+  top: 1rem; /* Adjust the distance from the bottom */
+  right: 16px; /* Adjust the distance from the right */
+}
+
+.additionalRows {
+  background-color: rgba(255, 255, 255, 0.5); /* Adjust transparency as needed */
+  padding: 20px; /* Adjust padding as needed */
+  margin-top: 20px; /* Add margin at the top to create space between the card and additional rows */
+  border-radius: 30px;
+}
+
+.moreRows {
+  padding-top: 2rem;
+}
+
+.transparentCard {
+  background-color: transparent; /* Make the card transparent */
+  border: none; /* Remove border if necessary */
+  /* Adjust height and width as needed */
+}
+
+.RoomImage {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.indivCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Set the height to 100% to match the height of the parent container */
+  padding: 16px; /* Adjust padding as needed */
+  position: relative;
+}
+
+.indivCard1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Set the height to 100% to match the height of the parent container */
+  padding: 16px; /* Adjust padding as needed */
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+

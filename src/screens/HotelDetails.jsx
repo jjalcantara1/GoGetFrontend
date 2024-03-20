@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import "./HotelDetails.css";
+import BlankHeader from "../components/BlankHeader";
 
 const HotelDetails = () => {
   const [hotel, setHotel] = useState({
@@ -69,6 +70,9 @@ const HotelDetails = () => {
   };
 
   return (
+    
+    <>
+    <BlankHeader />
     <div>
       <h2 className="hoteldetailstitle">Edit Hotel Details</h2>
       <div className="hotel-display">
@@ -155,6 +159,7 @@ const HotelDetails = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

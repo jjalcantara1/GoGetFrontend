@@ -56,7 +56,7 @@ const App = () => (
             <Route path="/hotels/1" element={<ProtectedRoute><HotelDetails /></ProtectedRoute>} exact />
             <Route path="/roomtypes/:id" element={<ProtectedRoute><RoomTypeDetail /></ProtectedRoute>} exact />
             <Route path="/roomtypes/new" element={<ProtectedRoute><AddEditRoomType /></ProtectedRoute>} exact />
-            <Route path="/roomtypes/:id/edit" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} exact />
+            <Route path="/roomtypes/:id/edit" element={<ProtectedRoute><AddEditRoomType /></ProtectedRoute>} exact />
             <Route path="/roomtypes" element={<ProtectedRoute><RoomTypeList /></ProtectedRoute>} exact />
             <Route path="/roomtypes/:roomTypeId/rooms" element={<ProtectedRoute><RoomDetails /></ProtectedRoute>} exact />
             <Route path="/roomtypes/:roomTypeId/addroom" element={<ProtectedRoute><AddRoomPage /></ProtectedRoute>} exact />
@@ -75,7 +75,7 @@ const App = () => (
         
           <Routes>
             <Route path="/selectroom" element={<SelectRoom />} exact />
-            <Route path='/products/' element={<RoomScreen />}/>
+            <Route path='/selectroom/product/:id' element={<RoomScreen />}/>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/contact" element={<ContactPage/>} />
             <Route path="/redeem" element={<PromoRedeem/>} />
