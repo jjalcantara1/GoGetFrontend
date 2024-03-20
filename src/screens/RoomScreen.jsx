@@ -2,21 +2,27 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, Image, ListGroup, Button, Card, ListGroupItem } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRoomTypes } from '../actions/roomTypeActions'; // Assuming your action file is named roomActions.js
+import { fetchRoomTypesDetail } from '../actions/roomTypeActions'; // Assuming your action file is named roomActions.js
 import '../SelectRoom.css';
+import { useParams } from 'react-router-dom';
+import BlankHeader from "../components/BlankHeader";
 
 function RoomScreen() {
     const dispatch = useDispatch();
+    const { id } = useParams();
+
     const { roomTypes, loading, error } = useSelector((state) => state.roomTypes);
 
     useEffect(() => {
-        dispatch(fetchRoomTypes());
-    }, [dispatch]);
-
+        dispatch(fetchRoomTypesDetail(id)); // Assuming you have the id variable available in your component
+    }, [dispatch, id]);
+    
     return (
         <>
-            <Link to="/" className="btn btn-light my-3">
-                Back to Homepage
+        <BlankHeader />
+        <div className='Contents'>
+            <Link to="/selectroom" className="btn btn-light my-3">
+                Back to Room Selection
             </Link>
             {loading ? (
                 <p>Loading...</p>
@@ -25,10 +31,10 @@ function RoomScreen() {
             ) : (
                 roomTypes && (
                     <Row>
-                        <Col md={8}>
-                            <Image src={roomTypes.image} alt={roomTypes.name} fluid></Image>
+                        <Col md={5}>
+                            <Image src={roomTypes.image} alt={roomTypes.name} className='RoomImage'></Image>
                         </Col>
-                        <Col md={4}>
+                        <Col md={5}>
                             <Card>
                                 <ListGroup variant="flush">
                                     <ListGroupItem>
@@ -70,6 +76,7 @@ function RoomScreen() {
                     </Row>
                 )
             )}
+            </div>
         </>
     );
 }

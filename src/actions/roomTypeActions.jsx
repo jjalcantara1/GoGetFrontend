@@ -39,6 +39,7 @@ export const getAllRoomTypes = () => async (dispatch) => {
         type: FETCH_ROOM_TYPES_SUCCESS,
         payload: data,
       });
+      console.log(response.data);
     } catch (error) {
       dispatch({
         type: FETCH_ROOM_TYPES_FAIL,
@@ -46,3 +47,21 @@ export const getAllRoomTypes = () => async (dispatch) => {
       });
     }
   };
+
+  export const fetchRoomTypesDetail = (id) => async (dispatch) => {
+    try {
+      const response = await axios.get(`http://127.0.0.1:8000/api/roomtypes/${id}/`);
+      dispatch({
+        type: 'FETCH_ROOM_TYPES_SUCCESS',
+        payload: response.data,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('There was an error fetching the room types', error);
+      dispatch({
+        type: 'FETCH_ROOM_TYPES_FAILURE',
+        payload: error.message,
+      });
+    }
+  };
+   

@@ -22,12 +22,6 @@ function Product({ product }) {
         <Card.Text as="h3" className="price-of-room">
           ₱{product.price}/night
         </Card.Text>
-
-        <div>
-          <button className="Book-Now-Button">
-          Book Room
-        </button>
-        </div>
           
       </Card.Body>
     </Card>
