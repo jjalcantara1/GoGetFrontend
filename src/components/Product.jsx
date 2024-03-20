@@ -8,9 +8,8 @@ function Product({ product }) {
   return (
     <div className="grid-container">
     <Card className="my-card custom card p-3 rounded">
-      <Link to={`product/${product._id}`}>
         <Card.Img src={product.image} className="roomPic" />
-      </Link>
+      
 
       <Card.Body>
         <Link to={`product/${product.id}`} className="link-no-underline">
