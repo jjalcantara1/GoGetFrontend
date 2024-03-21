@@ -21,18 +21,26 @@ export const getRoomsByType = (roomTypeId) => async (dispatch) => {
   export const addRoom = (roomData) => async (dispatch) => {
     dispatch({ type: ADD_ROOM_REQUEST });
     try {
+      console.log('Sending room creation data:', roomData);
       const response = await axios.post(`http://127.0.0.1:8000/api/rooms/`, roomData);
+      console.log('Received response:', response.data);
       dispatch({
         type: ADD_ROOM_SUCCESS,
         payload: response.data,
       });
     } catch (error) {
+      console.error('Error response:', error.response || error);
       dispatch({
         type: ADD_ROOM_FAILURE,
-        payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+        payload: error.response && error.response.data.detail
+          ? error.response.data.detail
+          : error.message,
       });
     }
   };
+  
+  
+  
 
 
 export const editRoom = (roomId, roomData) => async (dispatch) => {

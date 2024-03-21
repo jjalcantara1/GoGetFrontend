@@ -24,16 +24,21 @@ const AddRoomPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Dispatch the addRoom action with roomDetails and roomTypeId
-        dispatch(addRoom({ ...roomDetails, room_type: roomTypeId }))
-            .then(() => {
-                navigate(`/roomtypes/${roomTypeId}/rooms`);
-            })
-            .catch((error) => {
-                console.error('Error adding room:', error);
-            });
-    };
-    
+        const payload = { 
+          ...roomDetails,
+          room_type_id: roomTypeId // assuming roomTypeId is the correct id of the room type
+        };
+        
+        dispatch(addRoom(payload))
+          .then(() => {
+            navigate(`/roomtypes/${roomTypeId}/rooms`);
+          })
+          .catch((error) => {
+            console.error('Error adding room:', error);
+          });
+      };
+      
+      
 
     return (
         <div>
