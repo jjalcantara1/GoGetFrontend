@@ -2,7 +2,6 @@
 import React from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
-// In BookingSummary component
 const BookingSummary = ({ roomsDetails, selectedNumDays }) => {
   const calculateTotal = () => {
     return roomsDetails.reduce((total, room) => {
@@ -11,13 +10,29 @@ const BookingSummary = ({ roomsDetails, selectedNumDays }) => {
     }, 0);
   };
 
+  // Helper function to display the preference as a string
+  const preferenceLabel = (preference) => {
+    switch (preference) {
+      case 'standard':
+        return '';
+      case 'petFriendly':
+        return ' (Pet Friendly)';
+      case 'smoking':
+        return ' (Smoking Room)';
+      case 'both':
+        return ' (Pet Friendly & Smoking Room)';
+      default:
+        return '';
+    }
+  };
+
   return (
     <>
       <h4>Booking Summary</h4>
       <ListGroup>
         {roomsDetails.map((roomDetail, index) => (
           <ListGroupItem key={index}>
-            Room {index + 1}: {roomDetail.roomType ? `${roomDetail.roomType.name} for ${selectedNumDays} day(s)` : 'Not selected'}
+            Room {index + 1}: {roomDetail.roomType ? `${roomDetail.roomType.name} for ${selectedNumDays} day(s)${preferenceLabel(roomDetail.preference)}` : 'Not selected'}
           </ListGroupItem>
         ))}
       </ListGroup>
@@ -26,6 +41,4 @@ const BookingSummary = ({ roomsDetails, selectedNumDays }) => {
   );
 };
 
-  
-  export default BookingSummary;
-  
+export default BookingSummary;

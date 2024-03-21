@@ -8,7 +8,7 @@ import { checkRoomAvailability } from '../actions/roomAvailabilityActions';
 import { Container, Button, Row, Col, Form, Card } from 'react-bootstrap';
 import RoomTypeSelector from '../components/RoomTypeSelector';
 import BookingSummary from '../components/BookingSummary';import { differenceInCalendarDays, parseISO } from 'date-fns'; // Import differenceInCalendarDays from date-fns
-
+import BookButton from '../components/BookButton';
 
 Modal.setAppElement('#root');
 
@@ -56,12 +56,24 @@ const RoomAvailabilityScreen = () => {
     setRoomsDetails(filteredRooms);
   };
 
-  const onRoomTypeSelected = (roomTypeId, index) => {
-    const newRoomsDetails = [...roomsDetails];
-    const roomType = rooms.find(room => room.id === roomTypeId);
-    newRoomsDetails[index].roomType = roomType;
-    setRoomsDetails(newRoomsDetails);
+
+
+  const onRoomTypeSelected = (roomType, preference, index) => {
+    // Update the roomsDetails state to include the selected preference
+    const updatedRoomsDetails = roomsDetails.map((detail, idx) => {
+      if (idx === index) {
+        return { ...detail, roomType: roomType, preference: preference };
+      }
+      return detail;
+    });
+    setRoomsDetails(updatedRoomsDetails);
   };
+
+  const bookingSummaryDetails = roomsDetails.map((detail, index) => ({
+    // roomId: detail.roomType.id, // Example property
+    preference: detail.preference,
+    // Add other relevant booking details here
+  }));
 
   return (
     <Container>
@@ -92,16 +104,26 @@ const RoomAvailabilityScreen = () => {
       ))}
       <Button variant="primary" onClick={addRoom}>Add Another Room</Button>
       
-      {selectedDates.start && selectedDates.end && roomsDetails.map((roomDetail, index) => (
-        <RoomTypeSelector
-          key={index}
-          guestCount={roomDetail.guests}
-          availableRoomTypes={rooms.filter(room => room.capacity >= roomDetail.guests)} // Filter rooms by capacity
-          onRoomTypeSelected={(roomTypeId) => onRoomTypeSelected(roomTypeId, index)}
-        />
-      ))}
+      {selectedDates.start && selectedDates.end && (
+        <Row>
+          {roomsDetails.map((roomDetail, detailIndex) => {
+            // Filter rooms that match the guest count
+            const matchingRoomTypes = rooms.filter(room => room.capacity >= roomDetail.guests);
+            return (
+              <Col md={4} key={detailIndex}>
+                <RoomTypeSelector
+                  guestCount={roomDetail.guests}
+                  roomTypes={matchingRoomTypes} // Pass the array of matching room types
+                  onRoomTypeSelected={(selectedRoomType, pref) => onRoomTypeSelected(selectedRoomType, pref, detailIndex)}
+                />
+              </Col>
+            );
+          })}
+        </Row>
+      )}
       
       <BookingSummary roomsDetails={roomsDetails} selectedNumDays={selectedNumDays} />
+      <BookButton bookingDetails={bookingSummaryDetails} />
     </Container>
   );
 };
