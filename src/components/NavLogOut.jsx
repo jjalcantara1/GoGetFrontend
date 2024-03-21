@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
+import HotelLogo from "../AboutUsPics/HotelLogo.png";
 
 function NavLogOut() {
   const navigate = useNavigate();
@@ -16,7 +17,9 @@ function NavLogOut() {
     <>
       <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">GoGet</a>
+        <a className="navbar-brand" href="/">
+          <img src={HotelLogo} alt="Hotel Logo" className="hotel-logo" />
+        </a>
           <button
             className="navbar-toggler"
             type="button"

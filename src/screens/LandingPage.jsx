@@ -1,6 +1,6 @@
 import React from "react";
 import LandingPageWallpaper from "../LandingPageWallpaper.jpg";
-import Header from "../components/Header";
+import LandingHeader from "../components/LandingHeader";
 import "./LandingPage.css";
 import { Link } from "react-router-dom";
 import { button } from "react-bootstrap";
@@ -34,7 +34,7 @@ function LandingPage() {
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
       <div style={LandingStyle}>
-        <Header />
+        <LandingHeader />
       </div>
       <div style={OverlayStyle}>
         <h1 className="HotelName">GoGet</h1>

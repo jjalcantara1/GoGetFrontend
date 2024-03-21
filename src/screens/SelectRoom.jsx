@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Product from "../components/Product";
 import { Link } from "react-router-dom";
 import "../SelectRoom.css";
-import BlankHeader from "../components/BlankHeader";
+import Header from '../components/Header';
 
 function SelectRoom() {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ function SelectRoom() {
 
   return (
     <>
-    <BlankHeader />
+    <Header />
     <div className="Contents">
       <Container fluid>
         <h1 className="title">Available Rooms</h1>

@@ -1,9 +1,11 @@
 import React from 'react';
 import './GuestLog.css';
 import Table from 'react-bootstrap/Table';
-
+import BlankHeader from "../components/BlankHeader";
 function GuestLog() {
   return (
+    <>
+    <BlankHeader/>
     <div>
     <div className='roomTitle'>Guest Log</div>
     <Table striped bordered hover className="custom-table">
@@ -32,6 +34,7 @@ function GuestLog() {
 
   
   </div>
+  </>
   )
 }
 

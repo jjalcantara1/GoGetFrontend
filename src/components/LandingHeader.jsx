@@ -1,29 +1,13 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 import "./Header.css";
 import HotelLogo from "../AboutUsPics/HotelLogo.png"; // Import your logo file
 
-function Header() {
-  const navigate = useNavigate(); // Initialize useNavigate
-
-  // Function to handle back button click
-  const handleBackButtonClick = () => {
-    navigate("/"); // Navigate to the landing page
-  };
-
+function LandingHeader() {
   return (
     <nav className="navbar navbar-expand bg-primary" data-bs-theme="dark">
       <div className="container-fluid">
-        {/* Back Button */}
-        <button
-          className="btn btn-outline-light me-2"
-          onClick={handleBackButtonClick}
-        >
-          Back
-        </button>
-
         <a className="navbar-brand" href="/">
-          <img src={HotelLogo} alt="Hotel Logo" className="hotel-logo" />
+        <img src={HotelLogo} alt="Hotel Logo" className="hotel-logo" />
         </a>
         <button
           className="navbar-toggler"
@@ -71,4 +55,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default LandingHeader;
