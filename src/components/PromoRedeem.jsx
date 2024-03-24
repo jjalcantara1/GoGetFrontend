@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
-function PromoRedeem() {
+function PromoRedeem({ originalTotalCost, updateTotalCost }) {
   const [promoCode, setPromoCode] = useState('');
   const [error, setError] = useState('');
-  const [discount, setDiscount] = useState(null);
+  const [discountRate, setDiscountRate] = useState(null);
+  const [discountApplied, setDiscountApplied] = useState(0);
+  const [newTotalCost, setNewTotalCost] = useState(originalTotalCost);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,36 +22,54 @@ function PromoRedeem() {
       if (!response.ok) {
         const data = await response.json();
         setError(data.error || 'An error occurred');
-        setDiscount(null);
+        setDiscountRate(null);
+        setDiscountApplied(0);
         return;
       }
       
       const data = await response.json();
-      setDiscount(data.discount);
+      const discountRate = data.discount;
+      setDiscountRate(discountRate);
       setError('');
+
+      // If promo code is valid, update total cost and discount applied
+      if (data.discount) {
+        const discountAmount = originalTotalCost * (discountRate / 100);
+        setDiscountApplied(discountAmount);
+        const newTotal = originalTotalCost - discountAmount;
+        setNewTotalCost(newTotal);
+        updateTotalCost(newTotal);
+      }
     } catch (error) {
       console.error('Error redeeming promo code:', error);
       setError('An error occurred while redeeming the promo code');
-      setDiscount(null);
+      setDiscountRate(null);
+      setDiscountApplied(0);
+      setNewTotalCost(originalTotalCost); // Reset new total cost to original total cost
     }
   };
 
   return (
-    <div>
-      <h2>Redeem Promo Code</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Promo Code:
-          <input
-            type="text"
-            value={promoCode}
-            onChange={(e) => setPromoCode(e.target.value)}
-          />
-        </label>
-        <button type="submit">Redeem</button>
-      </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {discount && <p>Discount Applied: {discount}%</p>}
+    <div className="card">
+      <div className="card-body">
+        <h2 className="card-title">Redeem Promo Code</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label htmlFor="promoCode" className="form-label">Promo Code:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="promoCode"
+              value={promoCode}
+              onChange={(e) => setPromoCode(e.target.value)}
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">Redeem</button>
+        </form>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        {discountRate && <p>Discount Rate: {discountRate}%</p>}
+        {discountApplied !== 0 && <p>Discount Applied: ${discountApplied.toFixed(2)}</p>}
+      </div>
     </div>
   );
 }

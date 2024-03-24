@@ -30,6 +30,7 @@ import OrderScreen from './screens/OrderScreen';
 import PromoScreen from './screens/PromoScreen';
 import PromoEditScreen from './screens/PromoEditScreen';
 import PromoRedeem from './components/PromoRedeem';
+import ContactList from './screens/ContactList';
 
 
 
@@ -65,8 +66,9 @@ const App = () => (
             <Route path="/FAQs" element={<Faqs />} />
             <Route path="/guestlog" element={<ProtectedRoute><GuestLog /></ProtectedRoute>} exact />
             <Route path="/order" element={<OrderScreen />} />
-            <Route path="/promos" element={<PromoScreen />} />
-            <Route path="/editPromo" element={<PromoEditScreen />} />
+            <Route path="/promos" element={<ProtectedRoute><PromoScreen /></ProtectedRoute>} exact />
+            <Route path="/editPromo" element={<ProtectedRoute><PromoEditScreen /></ProtectedRoute>} exact />
+            <Route path="/contact-list" element={<ProtectedRoute><ContactList /></ProtectedRoute>} exact />
           </Routes>
         
         </Container>
@@ -80,7 +82,7 @@ const App = () => (
             <Route path="/contact" element={<ContactPage/>} />
             <Route path="/redeem" element={<PromoRedeem/>} />
           </Routes>
-        </Container>
+        </Container>  
 
 
 

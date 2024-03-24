@@ -28,6 +28,16 @@ const AdminPage = () => {
                 <AdminButton text="GUEST LOG" />
               </Col>
             </Link>
+            <Link to="/promos">
+              <Col md="auto">
+                <AdminButton text="PROMO CODES" />
+              </Col>
+            </Link>
+            <Link to="/contact-list">
+              <Col md="auto">
+                <AdminButton text="QUERIES" />
+              </Col>
+            </Link>
           </Row>
         </Container>
       </Container>

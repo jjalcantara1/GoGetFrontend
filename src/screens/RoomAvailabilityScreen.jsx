@@ -9,6 +9,7 @@ import { Container, Button, Row, Col, Form, Card } from 'react-bootstrap';
 import RoomTypeSelector from '../components/RoomTypeSelector';
 import BookingSummary from '../components/BookingSummary';import { differenceInCalendarDays, parseISO } from 'date-fns'; // Import differenceInCalendarDays from date-fns
 import BookButton from '../components/BookButton';
+import PromoRedeem from '../components/PromoRedeem';
 
 Modal.setAppElement('#root');
 
@@ -124,6 +125,7 @@ const RoomAvailabilityScreen = () => {
       
       <BookingSummary roomsDetails={roomsDetails} selectedNumDays={selectedNumDays} />
       <BookButton bookingDetails={bookingSummaryDetails} />
+
     </Container>
   );
 };
