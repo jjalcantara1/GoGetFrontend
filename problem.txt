@@ -1,2 +1,0 @@
-const { data } = await instance.post("api/login", { username, password}, config);
-
