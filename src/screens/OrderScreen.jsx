@@ -9,9 +9,11 @@ function OrderScreen() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [contactNumber, setContactNumber] = useState('');
-  const [booking, setBooking] = useState([]);
-  const [startDate, setStartDate] = useState([]);
-  const [endDate, setEndDate] = useState([]);
+  const [booking, setBooking] = useState({
+    booking_id: null,
+    start_date: '',
+    end_date: '',
+  })
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -30,16 +32,20 @@ function OrderScreen() {
   };
 
     const {id} = useParams();
+  
     useEffect(() => {
     async function getBooking() {
-      const {data} = await axios.get(`/book/bookconfirm/${id}`, {
-        start_date: startDate,
-        end_date: endDate,
-      });
-      setBooking(data)
+      try{
+        const {data} = await axios.get(`/book/bookingconfirm/${id}`);
+        setBooking(data)
+      } catch (error) {
+        console.error('Error fetching booking data:', error);
+      }
     }
-    getBooking()
-  })
+    if (id){
+      getBooking()
+    }
+  }, [id]);
 
   const[modalOpen, setModalOpen] = useState(false);
 
@@ -74,8 +80,8 @@ function OrderScreen() {
               Email: {email}<br />
               Contact Number: {contactNumber}<br />
               
-              Start Date: {startDate}<br />
-              End Date: {endDate}<br />
+              Start Date: {booking.start_date}<br />
+              End Date: {booking.end_date}<br />
 
               Are these the correct details?<br />
             </p>
